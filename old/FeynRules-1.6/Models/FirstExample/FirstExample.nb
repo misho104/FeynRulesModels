@@ -1,0 +1,535 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     18155,        526]
+NotebookOptionsPosition[     15530,        442]
+NotebookOutlinePosition[     15905,        459]
+CellTagsIndexPosition[     15862,        456]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$FeynRulesPath", "=", 
+   RowBox[{"SetDirectory", "[", "\"\<< address of the package >\>\"", "]"}]}],
+   ";"}]], "Input",
+ CellChangeTimes->{{3.4126590568924417`*^9, 3.412659075768538*^9}, {
+  3.423416384793591*^9, 3.423416395796236*^9}, {3.4234174151520243`*^9, 
+  3.423417420076274*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "FeynRules`"}]], "Input",
+ CellChangeTimes->{{3.405055838984818*^9, 3.405055920344975*^9}, {
+  3.412659080315321*^9, 3.412659086386956*^9}, {3.4137155382623587`*^9, 
+  3.4137155389379063`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"$FeynRulesPath", "<>", "\"\</Models/A first example\>\""}], "]"}],
+   ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["A first example : QCD (with 3 quark flavors)", "Title",
+ CellChangeTimes->{{3.405055931753027*^9, 3.4050559493200197`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The model file", "Section",
+ CellChangeTimes->{{3.405056344594654*^9, 3.405056350062855*^9}}],
+
+Cell["We first read in the model file via the command", "Text",
+ CellChangeTimes->{{3.40505595685706*^9, 3.405055957006489*^9}, {
+  3.4050559897639112`*^9, 3.4050560009412193`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"LoadModel", "[", "\"\<FirstExample.fr\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.405056007497719*^9, 3.405056021457884*^9}}],
+
+Cell["\<\
+The model file contains two particle classes :
+
+- The class F[1], a fermion represented by a symbol q, containing three \
+members (u, c, t).
+- The class V[1], a vector represented by the symbol G.
+
+Furthermore, the model contains a gauge group SU3C, connected to the gauge \
+boson G. Notice that the field strength tensor connected with G is defined \
+automatically by FeynRules:\
+\>", "Text",
+ CellChangeTimes->{{3.405056036651124*^9, 3.4050562183720837`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"FS", "[", 
+  RowBox[{"G", ",", "\[Mu]", ",", "\[Nu]", ",", "a"}], "]"}]], "Input",
+ CellChangeTimes->{{3.405056219218893*^9, 3.405056236551928*^9}}],
+
+Cell["\<\
+The $ varaibles are nothing special, they are just defined internally by \
+Mathematica in order not to interfere with existing, user - defined \
+variables. \
+\>", "Text",
+ CellChangeTimes->{{3.405056243781961*^9, 3.405056286169486*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The lagrangian", "Section",
+ CellChangeTimes->{{3.405056363448367*^9, 3.40505636561475*^9}}],
+
+Cell["The lagrangian is entered in the usual textbook way", "Text",
+ CellChangeTimes->{{3.4050562932761497`*^9, 3.405056293480383*^9}, {
+  3.405056384742694*^9, 3.405056391703071*^9}, {3.405056448676361*^9, 
+  3.405056453888558*^9}}],
+
+Cell[BoxData[
+ RowBox[{"L", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "1"}], "/", "4"}], 
+    RowBox[{"FS", "[", 
+     RowBox[{"G", ",", "\[Mu]", ",", "\[Nu]", ",", "a"}], "]"}], 
+    RowBox[{"FS", "[", 
+     RowBox[{"G", ",", "\[Mu]", ",", "\[Nu]", ",", "a"}], "]"}]}], "+", 
+   RowBox[{"I", " ", 
+    RowBox[{
+     RowBox[{"HC", "[", "q", "]"}], ".", 
+     RowBox[{"Ga", "[", "\[Mu]", "]"}], ".", 
+     RowBox[{"DC", "[", 
+      RowBox[{"q", ",", "\[Mu]"}], "]"}]}]}], "-", 
+   RowBox[{
+    RowBox[{"MQ", "[", "f", "]"}], " ", 
+    RowBox[{
+     RowBox[{"HC", "[", 
+      RowBox[{"q", "[", 
+       RowBox[{"s", ",", "f", ",", "i"}], "]"}], "]"}], ".", 
+     RowBox[{"q", "[", 
+      RowBox[{"s", ",", "f", ",", "i"}], "]"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.4050564602005167`*^9, 3.405056646301014*^9}, {
+  3.405056909869131*^9, 3.405056916498315*^9}, {3.423416634663773*^9, 
+  3.42341665572878*^9}, {3.423416720554686*^9, 3.423416722086699*^9}, {
+  3.453996904704235*^9, 3.453996912367002*^9}}],
+
+Cell["\<\
+Two comments about this expression :
+
+1) Notice the appearance of the term FS[G, \[Mu], \[Nu], a] FS[G, \[Mu], \
+\[Nu], a] instead of FS[G, \[Mu], \[Nu], a]^2. This is crucial because FS \
+contains internal connected indices (See the \"$-varaibles\" in the expresion \
+for L.
+
+2) The anti quarks can be entered in three different ways:
+     - Using the HC command (hermitian conjugate)
+     - Using the anti command
+     -Using the predefined symbol qbar\
+\>", "Text",
+ CellChangeTimes->{{3.405056665564649*^9, 3.405056825676083*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"HC", "[", "q", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"anti", "[", "q", "]"}], "\[IndentingNewLine]", "qbar"}], "Input",
+ CellChangeTimes->{{3.405056828832439*^9, 3.405056839241992*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The ToolBox functions", "Section",
+ CellChangeTimes->{{3.412621711134922*^9, 3.412621715160161*^9}}],
+
+Cell["\<\
+There are several functions in FeynRules which can be of interes during the \
+model building phase independently form the Feynman rule calculation. These \
+functions are stored in the ToolBox. The FeynRules ToolBox is meant to be the \
+place where the user can store his own functions, and reuse them at any time.
+
+For a detailed description of the default content of the ToolBox, just have a \
+look at the corresponding page on the FeynRules TWiki.
+The most important functions included in the current distribution of the \
+ToolBox are\
+\>", "Text",
+ CellChangeTimes->{{3.412621720242196*^9, 3.412621840150249*^9}, {
+  3.4126218764085073`*^9, 3.412621912838396*^9}, {3.412623019804165*^9, 
+  3.41262302463389*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["A set of boolean functions", "Subsection",
+ CellChangeTimes->{{3.412621841638858*^9, 3.412621860655322*^9}}],
+
+Cell["\<\
+This set of boolean functions can be useful to the user to build his own \
+functions\
+\>", "Text",
+ CellChangeTimes->{{3.412621922009417*^9, 3.412621945712339*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"FieldQ", "[", "q", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FieldQ", "[", "u", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FieldQ", "[", "G", "]"}]}], "Input",
+ CellChangeTimes->{{3.412621950515407*^9, 3.4126219669655943`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"FermionQ", "[", "q", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FermionQ", "[", "c", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"BosonQ", "[", "G", "]"}]}], "Input",
+ CellChangeTimes->{{3.4126219739022207`*^9, 3.412621993302534*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"VectorFieldQ", "[", "G", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DiracFieldQ", "[", "t", "]"}]}], "Input",
+ CellChangeTimes->{{3.41262199580132*^9, 3.412622009537178*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"TensQ", "[", "T", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"TensQ", "[", "Ga", "]"}]}], "Input",
+ CellChangeTimes->{{3.412622026939521*^9, 3.412622077271823*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"numQ", "[", "gs", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CnumQ", "[", "gs", "]"}]}], "Input",
+ CellChangeTimes->{{3.412622042541594*^9, 3.412622050703086*^9}}],
+
+Cell["\<\
+Furthermore, the indices carried by a symbol can be accessed via $IndList :\
+\>", "Text",
+ CellChangeTimes->{{3.4126220518227577`*^9, 3.4126220886813517`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"$IndList", "[", "q", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"$IndList", "[", "G", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"$IndList", "[", "t", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"$IndList", "[", "T", "]"}]}], "Input",
+ CellChangeTimes->{{3.412622094369547*^9, 3.412622113293187*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ExpandIndices", "Subsection",
+ CellChangeTimes->{{3.412622126459311*^9, 3.4126221284792833`*^9}}],
+
+Cell["\<\
+ExpandIndices expands the lagrangian over the suppressed indices\
+\>", "Text",
+ CellChangeTimes->{{3.4126221386186523`*^9, 3.41262215746382*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ExpandIndices", "[", "L", "]"}]], "Input",
+ CellChangeTimes->{{3.412622162731018*^9, 3.412622182234352*^9}}],
+
+Cell["\<\
+ExpandIndices has a couple of important and useful options
+        
+        -FlavorExpand: expands the lagrangian over flavor indices.\
+\>", "Text",
+ CellChangeTimes->{{3.412622190836598*^9, 3.412622255046381*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "Generation"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "True"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.412622217530345*^9, 3.412622223917107*^9}, {
+  3.412622262991602*^9, 3.4126222689357367`*^9}, {3.412622324442203*^9, 
+  3.4126223279601173`*^9}}],
+
+Cell["\<\
+        -MaxParticles : selects only those terms in the lagrangian which \
+contain at most the specified number of external fields.\
+\>", "Text",
+ CellChangeTimes->{{3.412622555554493*^9, 3.412622601879096*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"MaxParticles", "\[Rule]", "3"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.412622608049934*^9, 3.412622671543942*^9}, {
+  3.41262272489045*^9, 3.412622753715906*^9}}],
+
+Cell["\<\
+\[LineSeparator]        -MinParticles : selects only those terms in the \
+lagrangian which contain at least the specified number of external fields.\
+\>", "Text",
+ CellChangeTimes->{{3.412622555554493*^9, 3.412622601879096*^9}, {
+   3.41262292779758*^9, 3.412622932051305*^9}, 3.453996958146545*^9}],
+
+Cell[BoxData[
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"MinParticles", "\[Rule]", "4"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.412622608049934*^9, 3.412622671543942*^9}, {
+  3.41262272489045*^9, 3.412622753715906*^9}, {3.412622935060461*^9, 
+  3.412622938644176*^9}}],
+
+Cell["\<\
+        -MaxCanonicalDimension : selects only those terms in the lagrangian \
+with canonical dimension at least the specified value.\
+\>", "Text",
+ CellChangeTimes->{{3.412622555554493*^9, 3.412622601879096*^9}, {
+   3.412622951029521*^9, 3.412622966803392*^9}, {3.423416458302134*^9, 
+   3.4234164891073713`*^9}, 3.4234165697232323`*^9}],
+
+Cell[BoxData[
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"MaxCanonicalDimension", "\[Rule]", "3"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.412622608049934*^9, 3.412622671543942*^9}, {
+  3.41262272489045*^9, 3.412622753715906*^9}, {3.412622972087236*^9, 
+  3.412622988860485*^9}, {3.423416494166704*^9, 3.423416500788155*^9}}],
+
+Cell["\<\
+        -MinCanonicalDimension : selects only those terms in the lagrangian \
+with canonical dimension at most the specified value.\
+\>", "Text",
+ CellChangeTimes->{{3.412622555554493*^9, 3.412622601879096*^9}, {
+  3.412622951029521*^9, 3.412622966803392*^9}, {3.423416458302134*^9, 
+  3.4234164891073713`*^9}, {3.423416563907304*^9, 3.423416571723175*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"MinCanonicalDimension", "\[Rule]", "4"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.412622608049934*^9, 3.412622671543942*^9}, {
+  3.41262272489045*^9, 3.412622753715906*^9}, {3.412622972087236*^9, 
+  3.412622988860485*^9}, {3.423416494166704*^9, 3.423416500788155*^9}, {
+  3.423416559422811*^9, 3.423416574515698*^9}}],
+
+Cell["\<\
+        -SelectParticles : selects only those terms in the lagrangian which \
+contain exactly the specified  external fields.\
+\>", "Text",
+ CellChangeTimes->{{3.412622555554493*^9, 3.412622601879096*^9}, {
+  3.412622951029521*^9, 3.412622966803392*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ExpandIndices", "[", 
+  RowBox[{"L", ",", 
+   RowBox[{"SelectParticles", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"G", ",", "G", ",", "G"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"G", ",", "G", ",", "G", ",", "G"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.412622608049934*^9, 3.412622671543942*^9}, {
+  3.41262272489045*^9, 3.412622753715906*^9}, {3.412622972087236*^9, 
+  3.412622988860485*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Calculating Feynman rules", "Section",
+ CellChangeTimes->{{3.4050568443573627`*^9, 3.4050568801597013`*^9}, {
+  3.412621532582508*^9, 3.412621537386204*^9}}],
+
+Cell["The Feynman rules can be obtained via", "Text",
+ CellChangeTimes->{{3.4050568741378717`*^9, 3.405056885654763*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsQCD", "=", 
+   RowBox[{"FeynmanRules", "[", "L", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.405056890500811*^9, 3.405056893734693*^9}, {
+  3.4234168251956873`*^9, 3.423416830211779*^9}}],
+
+Cell["\<\
+The screen output can be turned off using the option ScreenOutput \[Rule] \
+False\
+\>", "Text",
+ CellChangeTimes->{{3.4050570995652933`*^9, 3.405057124943816*^9}, {
+  3.4050580912612667`*^9, 3.405058092869008*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsQCD", "=", 
+   RowBox[{"FeynmanRules", "[", 
+    RowBox[{"L", ",", 
+     RowBox[{"ScreenOutput", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.4050571316084957`*^9, 3.4050571438894167`*^9}, {
+  3.423416837356469*^9, 3.423416847428377*^9}}],
+
+Cell["The vertices can be accessed via", "Text",
+ CellChangeTimes->{{3.405057149222007*^9, 3.405057158615284*^9}}],
+
+Cell[BoxData["vertsQCD"], "Input",
+ CellChangeTimes->{{3.405057165397936*^9, 3.405057168982758*^9}, {
+  3.4234168524917173`*^9, 3.423416853803516*^9}}],
+
+Cell["FeynmanRules shares all the options of ExpandIndices:", "Text",
+ CellChangeTimes->{{3.4126230424107037`*^9, 3.4126230677294893`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"MaxParticles", "\[Rule]", "3"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.412623068854279*^9, 3.412623079338979*^9}, 
+   3.4234168980550003`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"MinParticles", "\[Rule]", "4"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.412623068854279*^9, 3.412623095594975*^9}, 
+   3.42341690427654*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"SelectParticles", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"G", ",", "G", ",", "G"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"G", ",", "G", ",", "G", ",", "G"}], "}"}]}], "}"}]}]}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.412623068854279*^9, 3.4126231164753*^9}, 
+   3.423416907117125*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"MaxCanonicalDimension", "\[Rule]", "3"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.4234169177082453`*^9, 3.423416925532045*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"MinCanonicalDimension", "\[Rule]", "4"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.4234169335562563`*^9, 3.423416937724022*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"Free", "\[Rule]", 
+     RowBox[{"{", "q", "}"}]}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.423416944355001*^9, 3.423416947835987*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanRules", "[", 
+   RowBox[{"L", ",", 
+    RowBox[{"Contains", "\[Rule]", 
+     RowBox[{"{", "q", "}"}]}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.423416952839855*^9, 3.4234169555482807`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 681},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5,
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 324, 7, 40, "Input"],
+Cell[872, 29, 222, 4, 40, "Input"],
+Cell[1097, 35, 154, 4, 40, "Input"],
+Cell[CellGroupData[{
+Cell[1276, 43, 129, 1, 114, "Title"],
+Cell[CellGroupData[{
+Cell[1430, 48, 99, 1, 100, "Section"],
+Cell[1532, 51, 181, 2, 39, "Text"],
+Cell[1716, 55, 150, 2, 40, "Input"],
+Cell[1869, 59, 471, 11, 174, "Text"],
+Cell[2343, 72, 172, 3, 40, "Input"],
+Cell[2518, 77, 246, 5, 39, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2801, 87, 98, 1, 100, "Section"],
+Cell[2902, 90, 233, 3, 39, "Text"],
+Cell[3138, 95, 1022, 27, 40, "Input"],
+Cell[4163, 124, 544, 13, 219, "Text"],
+Cell[4710, 139, 212, 3, 87, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4959, 147, 106, 1, 100, "Section"],
+Cell[5068, 150, 725, 13, 129, "Text"],
+Cell[CellGroupData[{
+Cell[5818, 167, 114, 1, 51, "Subsection"],
+Cell[5935, 170, 174, 4, 39, "Text"],
+Cell[6112, 176, 249, 4, 87, "Input"],
+Cell[6364, 182, 253, 4, 87, "Input"],
+Cell[6620, 188, 197, 3, 64, "Input"],
+Cell[6820, 193, 186, 3, 64, "Input"],
+Cell[7009, 198, 186, 3, 64, "Input"],
+Cell[7198, 203, 169, 3, 39, "Text"],
+Cell[7370, 208, 315, 5, 110, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7722, 218, 103, 1, 51, "Subsection"],
+Cell[7828, 221, 155, 3, 39, "Text"],
+Cell[7986, 226, 132, 2, 40, "Input"],
+Cell[8121, 230, 224, 5, 84, "Text"],
+Cell[8348, 237, 446, 10, 64, "Input"],
+Cell[8797, 249, 221, 4, 39, "Text"],
+Cell[9021, 255, 244, 5, 40, "Input"],
+Cell[9268, 262, 309, 5, 62, "Text"],
+Cell[9580, 269, 293, 6, 40, "Input"],
+Cell[9876, 277, 348, 6, 39, "Text"],
+Cell[10227, 285, 348, 6, 40, "Input"],
+Cell[10578, 293, 367, 6, 39, "Text"],
+Cell[10948, 301, 397, 7, 40, "Input"],
+Cell[11348, 310, 264, 5, 39, "Text"],
+Cell[11615, 317, 490, 13, 40, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12154, 336, 163, 2, 100, "Section"],
+Cell[12320, 340, 121, 1, 39, "Text"],
+Cell[12444, 343, 231, 5, 40, "Input"],
+Cell[12678, 350, 224, 5, 39, "Text"],
+Cell[12905, 357, 307, 8, 40, "Input"],
+Cell[13215, 367, 114, 1, 39, "Text"],
+Cell[13332, 370, 151, 2, 40, "Input"],
+Cell[13486, 374, 139, 1, 39, "Text"],
+Cell[13628, 377, 243, 6, 40, "Input"],
+Cell[13874, 385, 240, 6, 40, "Input"],
+Cell[14117, 393, 443, 13, 40, "Input"],
+Cell[14563, 408, 229, 6, 40, "Input"],
+Cell[14795, 416, 229, 6, 40, "Input"],
+Cell[15027, 424, 233, 6, 40, "Input"],
+Cell[15263, 432, 239, 6, 40, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
