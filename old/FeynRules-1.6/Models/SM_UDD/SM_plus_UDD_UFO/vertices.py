@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Wed 6 Apr 2011 01:53:58
+# Date: Wed 6 Apr 2011 21:45:34
 
 
 from object_library import all_vertices, Vertex
@@ -430,76 +430,76 @@ V_70 = Vertex(name = 'V_70',
               couplings = {(0,0):C.GC_9})
 
 V_71 = Vertex(name = 'V_71',
-              particles = [ P.t, P.d, P.sbR__tilde__ ],
-              color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS3 ],
+              particles = [ P.t__tilde__, P.d__tilde__, P.sbR__tilde__ ],
+              color = [ 'EpsilonBar(1,2,3)' ],
+              lorentz = [ L.FFS4 ],
               couplings = {(0,0):C.GC_62})
 
 V_72 = Vertex(name = 'V_72',
-              particles = [ P.t__tilde__, P.d__tilde__, P.sbR ],
+              particles = [ P.t, P.d, P.sbR ],
               color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS4 ],
+              lorentz = [ L.FFS3 ],
               couplings = {(0,0):C.GC_62})
 
 V_73 = Vertex(name = 'V_73',
-              particles = [ P.t, P.s, P.sdR__tilde__ ],
-              color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS3 ],
+              particles = [ P.t__tilde__, P.s__tilde__, P.sdR__tilde__ ],
+              color = [ 'EpsilonBar(1,2,3)' ],
+              lorentz = [ L.FFS4 ],
               couplings = {(0,0):C.GC_61})
 
 V_74 = Vertex(name = 'V_74',
-              particles = [ P.t, P.b, P.sdR__tilde__ ],
-              color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS3 ],
+              particles = [ P.t__tilde__, P.b__tilde__, P.sdR__tilde__ ],
+              color = [ 'EpsilonBar(1,2,3)' ],
+              lorentz = [ L.FFS4 ],
               couplings = {(0,0):C.GC_63})
 
 V_75 = Vertex(name = 'V_75',
-              particles = [ P.t__tilde__, P.s__tilde__, P.sdR ],
+              particles = [ P.t, P.s, P.sdR ],
               color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS4 ],
+              lorentz = [ L.FFS3 ],
               couplings = {(0,0):C.GC_61})
 
 V_76 = Vertex(name = 'V_76',
-              particles = [ P.t__tilde__, P.b__tilde__, P.sdR ],
+              particles = [ P.t, P.b, P.sdR ],
               color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS4 ],
+              lorentz = [ L.FFS3 ],
               couplings = {(0,0):C.GC_63})
 
 V_77 = Vertex(name = 'V_77',
-              particles = [ P.t, P.d, P.ssR__tilde__ ],
-              color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS3 ],
+              particles = [ P.t__tilde__, P.d__tilde__, P.ssR__tilde__ ],
+              color = [ 'EpsilonBar(1,2,3)' ],
+              lorentz = [ L.FFS4 ],
               couplings = {(0,0):C.GC_60})
 
 V_78 = Vertex(name = 'V_78',
-              particles = [ P.t__tilde__, P.d__tilde__, P.ssR ],
+              particles = [ P.t, P.d, P.ssR ],
               color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS4 ],
+              lorentz = [ L.FFS3 ],
               couplings = {(0,0):C.GC_60})
 
 V_79 = Vertex(name = 'V_79',
-              particles = [ P.s, P.d, P.stR__tilde__ ],
-              color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS3 ],
-              couplings = {(0,0):C.GC_61})
+              particles = [ P.d__tilde__, P.b__tilde__, P.stR__tilde__ ],
+              color = [ 'EpsilonBar(1,2,3)' ],
+              lorentz = [ L.FFS4 ],
+              couplings = {(0,0):C.GC_62})
 
 V_80 = Vertex(name = 'V_80',
-              particles = [ P.d, P.b, P.stR__tilde__ ],
+              particles = [ P.s__tilde__, P.d__tilde__, P.stR__tilde__ ],
+              color = [ 'EpsilonBar(1,2,3)' ],
+              lorentz = [ L.FFS4 ],
+              couplings = {(0,0):C.GC_61})
+
+V_81 = Vertex(name = 'V_81',
+              particles = [ P.d, P.b, P.stR ],
               color = [ 'Epsilon(1,2,3)' ],
               lorentz = [ L.FFS3 ],
               couplings = {(0,0):C.GC_62})
 
-V_81 = Vertex(name = 'V_81',
-              particles = [ P.s__tilde__, P.d__tilde__, P.stR ],
-              color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS4 ],
-              couplings = {(0,0):C.GC_61})
-
 V_82 = Vertex(name = 'V_82',
-              particles = [ P.d__tilde__, P.b__tilde__, P.stR ],
+              particles = [ P.s, P.d, P.stR ],
               color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS4 ],
-              couplings = {(0,0):C.GC_62})
+              lorentz = [ L.FFS3 ],
+              couplings = {(0,0):C.GC_61})
 
 V_83 = Vertex(name = 'V_83',
               particles = [ P.d__tilde__, P.d, P.A ],

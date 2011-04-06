@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Wed 6 Apr 2011 01:53:47
+# Date: Wed 6 Apr 2011 21:44:50
 
 
 # 
@@ -44,19 +44,7 @@
    * Checked QNumber conservation.
       - Quantum number GhostNumber conserved in all vertices.
       - Quantum number LeptonNumber conserved in all vertices.
-      - Quantum number Q NOT conserved in the following vertices
-          {sbR, dbar, tbar}
-          {sbRbar, d, t}
-          {sdR, sbar, tbar}
-          {sdR, bbar, tbar}
-          {sdRbar, s, t}
-          {sdRbar, b, t}
-          {ssR, dbar, tbar}
-          {ssRbar, d, t}
-          {stR, dbar, sbar}
-          {stR, bbar, dbar}
-          {stRbar, d, s}
-          {stRbar, b, d}
+      - Quantum number Q conserved in all vertices.
    * particles.py written.
    * parameters.py written.
 #

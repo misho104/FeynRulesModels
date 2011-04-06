@@ -20,11 +20,16 @@ IndexRange[Index[SCA]] = Range[6]; IndexStyle[SCA, i];
 (*****************************************************************************************)
 
 M$Parameters = {
-  Msq    == {
+  MsqL   == {
         ParameterType -> External,
-        TeX           -> Subscript["M","sq"],
+        TeX           -> Subsuperscript["M","sq","L"],
         Value         -> 200,
-        Description   -> "Squark mass in GeV"},
+        Description   -> "Left-handed Squark mass in GeV"},
+  MsqR   == {
+        ParameterType -> External,
+        TeX           -> Subsuperscript["M","sq","R"],
+        Value         -> 200,
+        Description   -> "Right-handed Squark mass in GeV"},
   Wsq    == {
         ParameterType -> External,
         TeX           -> Subscript["W","sq"],
@@ -57,8 +62,8 @@ M$ClassesDescription = {
         ParticleName     ->        { "suL"    ,  "scL"    ,  "stL"    ,  "suR"    ,  "scR"    ,  "stR"     },
         AntiParticleName ->        { "suL~"   ,  "scL~"   ,  "stL~"   ,  "suR~"   ,  "scR~"   ,  "stR~"    },
         ClassMembers     ->        {  suL     ,   scL     ,   stL     ,   suR     ,   scR     ,   stR      },
-        Mass             -> { Msu,  {MsuL,Msq}, {MscL,Msq}, {MstL,Msq}, {MsuR,Msq}, {MscR,Msq}, {MstR,Msq} },
-        Width            -> { Wsu,  {WsuL,Wsq}, {WscL,Wsq}, {WstL,Wsq}, {WsuR,Wsq}, {WscR,Wsq}, {WstR,Wsq} },
+        Mass             -> {{MsqL,Internal},{MsqL,Internal},{MsqL,Internal},{MsqR,Internal},{MsqR,Internal},{MsqR,Internal}},
+        Width            -> {{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal}},
         PropagatorLabel  -> { "su",  "suL"    ,  "scL"    ,  "stL"    ,  "suR"    ,  "scR"    ,  "stR"     },
         FullName         -> { "u-squark-left", "c-squark-left", "t-squark-left", "u-squark-right", "c-squark-right", "t-squark-right"},
         PropagatorType   -> ScalarDash,
@@ -74,8 +79,8 @@ M$ClassesDescription = {
         ParticleName     ->        { "sdL"  , "ssL"  , "sbL"  , "sdR"  , "ssR"  , "sbR"   },
         AntiParticleName ->        { "sdL~" , "ssL~" , "sbL~" , "sdR~" , "ssR~" , "sbR~"  },
         ClassMembers     ->        {  sdL   ,  ssL   ,  sbL   ,  sdR   ,  ssR   ,  sbR    },
-        Mass             -> { Msd ,  {MsdL,Msq}   , {MssL,Msq}   , {MsbL,Msq}   , {MsdR,Msq}   , {MssR,Msq}   , {MsbR,Msq}    },
-        Width            -> { Wsd ,  {WsdL,Wsq}   , {WssL,Wsq}   , {WsbL,Wsq}   , {WsdR,Wsq}   , {WssR,Wsq}   , {WsbR,Wsq}    },
+        Mass             -> {{MsqL,Internal},{MsqL,Internal},{MsqL,Internal},{MsqR,Internal},{MsqR,Internal},{MsqR,Internal}},
+        Width            -> {{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal}},
         PropagatorLabel  -> { "sd",  "sdL"  , "ssL"  , "sbL"  , "sdR"  , "ssR"  , "sbR"   },
         FullName         -> { "d-squark-left", "s-squark-left", "b-squark-left", "d-squark-right", "s-squark-right", "b-squark-right"},
         PropagatorType   -> ScalarDash,
@@ -85,17 +90,18 @@ M$ClassesDescription = {
 
 (*****************************************************************************************)
 
-LRPV := Module[{udd, uddCC, r,c, c1,c2,gen,glu, c3,sp,i,j,k},
+LRPV := Module[{udd, uddCC, r,c, c1,c2,gen,glu, c3,sp,i,j,k, Msquark},
          (*** UDD Terms Definition ***)
-         udd[i_,j_,k_]   := Eps[c1,c2,c3]( HC[su[i+3, c1]] CC[dqbar[sp, k, c3]].right[  dq[sp, j, c2]]
-                                         + HC[sd[j+3, c2]] CC[dqbar[sp, k, c3]].right[  uq[sp, i, c1]]
-                                         + HC[sd[k+3, c3]] CC[uqbar[sp, i, c1]].right[  dq[sp, j, c2]]);
-         uddCC[i_,j_,k_] := Eps[c1,c2,c3](    su[i+3, c1]     dqbar[sp, k, c3] .left[CC[dq[sp, j, c2]]]
-                                            + sd[j+3, c2]     dqbar[sp, k, c3] .left[CC[uq[sp, i, c1]]]
-                                            + sd[k+3, c3]     uqbar[sp, i, c1] .left[CC[dq[sp, j, c2]]]);
+         udd[i_,j_,k_]   := Eps[c1,c2,c3]( HC[su[i+3, c1]]   dqbar[sp, j, c2] .left[CC[dq[sp, k, c3]]]
+                                         + HC[sd[j+3, c2]]   uqbar[sp, i, c1] .left[CC[dq[sp, k, c3]]]
+                                         + HC[sd[k+3, c3]]   uqbar[sp, i, c1] .left[CC[dq[sp, j, c2]]]);
+         uddCC[i_,j_,k_] := Eps[c1,c2,c3](    su[i+3, c1] CC[dqbar[sp, j, c2]].right[  dq[sp, k, c3]]
+                                            + sd[j+3, c2] CC[uqbar[sp, i, c1]].right[  dq[sp, k, c3]]
+                                            + sd[k+3, c3] CC[uqbar[sp, i, c1]].right[  dq[sp, j, c2]]);
+         Msquark[r_] := If[r<4, MsqL, MsqR];
          (*** The Lagrangian ***)
-           del[HC[su[r,c]],mu].del[su[r,c],mu] - Msu[r]^2 HC[su[r,c]].su[r,c]
-         + del[HC[sd[r,c]],mu].del[sd[r,c],mu] - Msd[r]^2 HC[sd[r,c]].sd[r,c]
+           del[HC[su[r,c]],mu].del[su[r,c],mu] - Msquark[r]^2 HC[su[r,c]].su[r,c]
+         + del[HC[sd[r,c]],mu].del[sd[r,c],mu] - Msquark[r]^2 HC[sd[r,c]].sd[r,c]
          + I gs (del[subar[gen, c2], mu] G[mu, glu] su[gen, c1]    T[glu, c1, c2]
                - del[su[gen, c1],    mu] G[mu, glu] subar[gen, c2] T[glu, c1, c2] )
          + I gs (del[sdbar[gen, c2], mu] G[mu, glu] sd[gen, c1]    T[glu, c1, c2]

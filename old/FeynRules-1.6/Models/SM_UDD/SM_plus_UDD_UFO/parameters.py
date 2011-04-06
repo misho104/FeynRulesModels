@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Wed 6 Apr 2011 01:53:58
+# Date: Wed 6 Apr 2011 21:45:34
 
 
 
@@ -121,13 +121,21 @@ ymtau = Parameter(name = 'ymtau',
                   lhablock = 'YUKAWA',
                   lhacode = [ 15 ])
 
-Msq = Parameter(name = 'Msq',
-                nature = 'external',
-                type = 'real',
-                value = 200,
-                texname = 'M_{\\text{sq}}',
-                lhablock = 'FRBlock',
-                lhacode = [ 1 ])
+MsqL = Parameter(name = 'MsqL',
+                 nature = 'external',
+                 type = 'real',
+                 value = 200,
+                 texname = 'M_{\\text{sq}}^L',
+                 lhablock = 'FRBlock',
+                 lhacode = [ 1 ])
+
+MsqR = Parameter(name = 'MsqR',
+                 nature = 'external',
+                 type = 'real',
+                 value = 200,
+                 texname = 'M_{\\text{sq}}^R',
+                 lhablock = 'FRBlock',
+                 lhacode = [ 2 ])
 
 Wsq = Parameter(name = 'Wsq',
                 nature = 'external',
@@ -135,7 +143,7 @@ Wsq = Parameter(name = 'Wsq',
                 value = 0,
                 texname = 'W_{\\text{sq}}',
                 lhablock = 'FRBlock',
-                lhacode = [ 2 ])
+                lhacode = [ 3 ])
 
 UDD312 = Parameter(name = 'UDD312',
                    nature = 'external',
@@ -143,7 +151,7 @@ UDD312 = Parameter(name = 'UDD312',
                    value = 1.,
                    texname = '\\lambda _{312}^{\\prime\\prime }',
                    lhablock = 'FRBlock',
-                   lhacode = [ 3 ])
+                   lhacode = [ 4 ])
 
 UDD313 = Parameter(name = 'UDD313',
                    nature = 'external',
@@ -151,7 +159,7 @@ UDD313 = Parameter(name = 'UDD313',
                    value = 1.,
                    texname = '\\lambda _{313}^{\\prime\\prime }',
                    lhablock = 'FRBlock',
-                   lhacode = [ 4 ])
+                   lhacode = [ 5 ])
 
 Me = Parameter(name = 'Me',
                nature = 'external',
@@ -241,102 +249,6 @@ MH = Parameter(name = 'MH',
                lhablock = 'MASS',
                lhacode = [ 25 ])
 
-MsuL = Parameter(name = 'MsuL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MsuL}',
-                 lhablock = 'MASS',
-                 lhacode = [ 1000002 ])
-
-MscL = Parameter(name = 'MscL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MscL}',
-                 lhablock = 'MASS',
-                 lhacode = [ 1000004 ])
-
-MstL = Parameter(name = 'MstL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MstL}',
-                 lhablock = 'MASS',
-                 lhacode = [ 1000006 ])
-
-MsuR = Parameter(name = 'MsuR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MsuR}',
-                 lhablock = 'MASS',
-                 lhacode = [ 2000002 ])
-
-MscR = Parameter(name = 'MscR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MscR}',
-                 lhablock = 'MASS',
-                 lhacode = [ 2000004 ])
-
-MstR = Parameter(name = 'MstR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MstR}',
-                 lhablock = 'MASS',
-                 lhacode = [ 2000006 ])
-
-MsdL = Parameter(name = 'MsdL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MsdL}',
-                 lhablock = 'MASS',
-                 lhacode = [ 1000001 ])
-
-MssL = Parameter(name = 'MssL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MssL}',
-                 lhablock = 'MASS',
-                 lhacode = [ 1000003 ])
-
-MsbL = Parameter(name = 'MsbL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MsbL}',
-                 lhablock = 'MASS',
-                 lhacode = [ 1000005 ])
-
-MsdR = Parameter(name = 'MsdR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MsdR}',
-                 lhablock = 'MASS',
-                 lhacode = [ 2000001 ])
-
-MssR = Parameter(name = 'MssR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MssR}',
-                 lhablock = 'MASS',
-                 lhacode = [ 2000003 ])
-
-MsbR = Parameter(name = 'MsbR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Msq,
-                 texname = '\\text{MsbR}',
-                 lhablock = 'MASS',
-                 lhacode = [ 2000005 ])
-
 WT = Parameter(name = 'WT',
                nature = 'external',
                type = 'real',
@@ -368,102 +280,6 @@ WH = Parameter(name = 'WH',
                texname = '\\text{WH}',
                lhablock = 'DECAY',
                lhacode = [ 25 ])
-
-WsuL = Parameter(name = 'WsuL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WsuL}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 1000002 ])
-
-WscL = Parameter(name = 'WscL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WscL}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 1000004 ])
-
-WstL = Parameter(name = 'WstL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WstL}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 1000006 ])
-
-WsuR = Parameter(name = 'WsuR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WsuR}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 2000002 ])
-
-WscR = Parameter(name = 'WscR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WscR}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 2000004 ])
-
-WstR = Parameter(name = 'WstR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WstR}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 2000006 ])
-
-WsdL = Parameter(name = 'WsdL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WsdL}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 1000001 ])
-
-WssL = Parameter(name = 'WssL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WssL}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 1000003 ])
-
-WsbL = Parameter(name = 'WsbL',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WsbL}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 1000005 ])
-
-WsdR = Parameter(name = 'WsdR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WsdR}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 2000001 ])
-
-WssR = Parameter(name = 'WssR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WssR}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 2000003 ])
-
-WsbR = Parameter(name = 'WsbR',
-                 nature = 'external',
-                 type = 'real',
-                 value = Wsq,
-                 texname = '\\text{WsbR}',
-                 lhablock = 'DECAY',
-                 lhacode = [ 2000005 ])
 
 aEW = Parameter(name = 'aEW',
                 nature = 'internal',
