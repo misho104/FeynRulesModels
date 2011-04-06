@@ -102,10 +102,10 @@ LRPV := Module[{udd, uddCC, r,c, c1,c2,gen,glu, c3,sp,i,j,k, Msquark},
          (*** The Lagrangian ***)
            del[HC[su[r,c]],mu].del[su[r,c],mu] - Msquark[r]^2 HC[su[r,c]].su[r,c]
          + del[HC[sd[r,c]],mu].del[sd[r,c],mu] - Msquark[r]^2 HC[sd[r,c]].sd[r,c]
-         + I gs (del[subar[gen, c2], mu] G[mu, glu] su[gen, c1]    T[glu, c1, c2]
-               - del[su[gen, c1],    mu] G[mu, glu] subar[gen, c2] T[glu, c1, c2] )
-         + I gs (del[sdbar[gen, c2], mu] G[mu, glu] sd[gen, c1]    T[glu, c1, c2]
-               - del[sd[gen, c1],    mu] G[mu, glu] sdbar[gen, c2] T[glu, c1, c2] )
+         + I gs (del[subar[gen, c2], mu] G[mu, glu] su[gen, c1]    T[glu, c2, c1]
+               - del[su[gen, c1],    mu] G[mu, glu] subar[gen, c2] T[glu, c2, c1] )
+         + I gs (del[sdbar[gen, c2], mu] G[mu, glu] sd[gen, c1]    T[glu, c2, c1]
+               - del[sd[gen, c1],    mu] G[mu, glu] sdbar[gen, c2] T[glu, c2, c1] )
          - UDD312 udd[3,1,2] - Conjugate[UDD312] uddCC[3,1,2]
          - UDD313 udd[3,1,3] - Conjugate[UDD313] uddCC[3,1,3]
 ];

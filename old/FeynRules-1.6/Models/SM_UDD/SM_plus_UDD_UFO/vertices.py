@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Wed 6 Apr 2011 21:45:34
+# Date: Wed 6 Apr 2011 23:41:27
 
 
 from object_library import all_vertices, Vertex
@@ -845,73 +845,73 @@ V_139 = Vertex(name = 'V_139',
 
 V_140 = Vertex(name = 'V_140',
                particles = [ P.G, P.sdL__tilde__, P.sdL ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_141 = Vertex(name = 'V_141',
                particles = [ P.G, P.ssL__tilde__, P.ssL ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_142 = Vertex(name = 'V_142',
                particles = [ P.G, P.sbL__tilde__, P.sbL ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_143 = Vertex(name = 'V_143',
                particles = [ P.G, P.sdR__tilde__, P.sdR ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_144 = Vertex(name = 'V_144',
                particles = [ P.G, P.ssR__tilde__, P.ssR ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_145 = Vertex(name = 'V_145',
                particles = [ P.G, P.sbR__tilde__, P.sbR ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_146 = Vertex(name = 'V_146',
                particles = [ P.G, P.suL__tilde__, P.suL ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_147 = Vertex(name = 'V_147',
                particles = [ P.G, P.scL__tilde__, P.scL ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_148 = Vertex(name = 'V_148',
                particles = [ P.G, P.stL__tilde__, P.stL ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_149 = Vertex(name = 'V_149',
                particles = [ P.G, P.suR__tilde__, P.suR ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_150 = Vertex(name = 'V_150',
                particles = [ P.G, P.scR__tilde__, P.scR ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
 V_151 = Vertex(name = 'V_151',
                particles = [ P.G, P.stR__tilde__, P.stR ],
-               color = [ 'T(1,2,3)' ],
+               color = [ 'T(1,3,2)' ],
                lorentz = [ L.VSS1 ],
                couplings = {(0,0):C.GC_10})
 
