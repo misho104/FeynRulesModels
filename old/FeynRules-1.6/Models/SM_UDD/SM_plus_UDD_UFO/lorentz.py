@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Fri 8 Apr 2011 17:41:13
+# Date: Fri 8 Apr 2011 20:50:17
 
 
 from object_library import all_lorentz, Lorentz
@@ -8,14 +8,6 @@ from object_library import all_lorentz, Lorentz
 from function_library import complexconjugate, re, im, csc, sec, acsc, asec
 
 
-
-VS1 = Lorentz(name = 'VS1',
-              spins = [ 3, 1 ],
-              structure = 'P(1,2)')
-
-VV1 = Lorentz(name = 'VV1',
-              spins = [ 3, 3 ],
-              structure = 'Metric(1,2)')
 
 UUS1 = Lorentz(name = 'UUS1',
                spins = [ -1, -1, 1 ],

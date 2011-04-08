@@ -99,8 +99,8 @@ LRPV := Module[{udd,uddCC,Msquark, g,ga,gb, c,c1,c2,c3, sp,i,j,k,mu},
                                             + sd[j+3, c2] CC[uqbar[sp, i, c1]].right[  dq[sp, k, c3]]
                                             + sd[k+3, c3] CC[uqbar[sp, i, c1]].right[  dq[sp, j, c2]]);
          Msquark[i_] := If[i<4, MsqL, MsqR];
-         (*** The Lagrangian ***)
-         HC[DC[su, mu]] DC[su, mu]+HC[DC[sd, mu]] DC[sd, mu]
+         (*** The Lagrangian ***) 
+         HC[DC[su[i,c], mu]].DC[su[i,c], mu]+HC[DC[sd[i,c], mu]].DC[sd[i,c], mu]
          - Msquark[i]^2 HC[su[i,c]].su[i,c]
          - Msquark[i]^2 HC[sd[i,c]].sd[i,c]
          - UDD312 udd[3,1,2] - Conjugate[UDD312] uddCC[3,1,2]

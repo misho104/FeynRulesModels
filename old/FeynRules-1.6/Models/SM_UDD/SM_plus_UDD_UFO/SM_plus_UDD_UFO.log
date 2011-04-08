@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Fri 8 Apr 2011 17:40:00
+# Date: Fri 8 Apr 2011 20:50:06
 
 
 # 
@@ -38,42 +38,30 @@
 
 # Vertices
    * Calling FeynmanRules for 6 Lagrangians.
-   * Number of classes vertices: 108
-   * Number of flavored vertices: 188
+   * Number of classes vertices: 109
+   * Number of flavored vertices: 199
    * Saved vertices in InterfaceRun[ 1 ].
    * Checked QNumber conservation.
       - Quantum number GhostNumber conserved in all vertices.
       - Quantum number LeptonNumber conserved in all vertices.
-      - Quantum number Q NOT conserved in the following vertices
-          {G, sdL}
-          {G, ssL}
-          {G, sbL}
-          {G, sdR}
-          {G, ssR}
-          {G, sbR}
-          {G, suL}
-          {G, scL}
-          {G, stL}
-          {G, suR}
-          {G, scR}
-          {G, stR}
+      - Quantum number Q conserved in all vertices.
    * particles.py written.
    * parameters.py written.
 #
 # Vertex definitions
 #
 
-   * 188 vertices written.
+   * 199 vertices written.
    * vertices.py written.
 #
 # Lorentz structure definitions
 #
 
-   * 24 lorentz structures written.
+   * 22 lorentz structures written.
    * lorentz.py written.
 #
 # Coupling definitions
 #
 
-   * 146 couplings written.
+   * 141 couplings written.
    * couplings.py written.
