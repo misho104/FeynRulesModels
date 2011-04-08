@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      2796,         73]
-NotebookOptionsPosition[      2493,         58]
-NotebookOutlinePosition[      2847,         74]
-CellTagsIndexPosition[      2804,         71]
+NotebookDataLength[      2944,         75]
+NotebookOptionsPosition[      2641,         60]
+NotebookOutlinePosition[      2995,         76]
+CellTagsIndexPosition[      2952,         73]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -41,7 +41,9 @@ Cell[BoxData[{
    3.5110811079090376`*^9}, {3.511082000530237*^9, 3.5110820007018375`*^9}, {
    3.511082122772052*^9, 3.5110821316484675`*^9}, {3.5110821972621827`*^9, 
    3.511082198400985*^9}, {3.511082529589435*^9, 3.511082530728237*^9}, {
-   3.511082656277258*^9, 3.5110826582428613`*^9}}],
+   3.511082656277258*^9, 3.5110826582428613`*^9}, {3.511154374974339*^9, 
+   3.5111543799195476`*^9}, 3.511154720982947*^9, 3.5112345821863856`*^9, {
+   3.511240751026082*^9, 3.511240782896938*^9}}],
 
 Cell[BoxData[{
  RowBox[{"CheckHermiticity", "[", "LRPV", "]"}], "\[IndentingNewLine]", 
@@ -73,8 +75,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 1311, 23, 92, "Input"],
-Cell[1859, 45, 630, 11, 132, "Input"]
+Cell[545, 20, 1459, 25, 92, "Input"],
+Cell[2007, 47, 630, 11, 132, "Input"]
 }
 ]
 *)

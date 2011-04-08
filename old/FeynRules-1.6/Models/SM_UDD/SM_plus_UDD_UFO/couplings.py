@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Wed 6 Apr 2011 23:41:28
+# Date: Fri 8 Apr 2011 17:41:13
 
 
 from object_library import all_couplings, Coupling
@@ -247,19 +247,19 @@ GC_59 = Coupling(name = 'GC_59',
 
 GC_60 = Coupling(name = 'GC_60',
                  value = '-(complex(0,1)*UDD312)',
-                 order = {'QED':1})
+                 order = {'RPV':1})
 
 GC_61 = Coupling(name = 'GC_61',
                  value = 'complex(0,1)*UDD312',
-                 order = {'QED':1})
+                 order = {'RPV':1})
 
 GC_62 = Coupling(name = 'GC_62',
                  value = '-(complex(0,1)*UDD313)',
-                 order = {'QED':1})
+                 order = {'RPV':1})
 
 GC_63 = Coupling(name = 'GC_63',
                  value = 'complex(0,1)*UDD313',
-                 order = {'QED':1})
+                 order = {'RPV':1})
 
 GC_64 = Coupling(name = 'GC_64',
                  value = '-(ee**2*v)/(2.*cw)',
@@ -568,4 +568,28 @@ GC_139 = Coupling(name = 'GC_139',
 GC_140 = Coupling(name = 'GC_140',
                   value = '-(yt*complexconjugate(CKM33))',
                   order = {'QED':1})
+
+GC_141 = Coupling(name = 'GC_141',
+                  value = '-(complex(0,1)*G*Dot(sdbar,T(1)))',
+                  order = {'QCD':1,'PRIVATE`GetIntOrder[sdbar . C$T[Index[Gluon, Ext[1]]]]':1})
+
+GC_142 = Coupling(name = 'GC_142',
+                  value = '-(complex(0,1)*G*Dot(subar,T(1)))',
+                  order = {'QCD':1,'PRIVATE`GetIntOrder[subar . C$T[Index[Gluon, Ext[1]]]]':1})
+
+GC_143 = Coupling(name = 'GC_143',
+                  value = 'complex(0,1)*G**2*Dot(sdbar,T(2))*Dot(T(1),sd)',
+                  order = {'QCD':2,'PRIVATE`GetIntOrder[sdbar . C$T[Index[Gluon, Ext[2]]]]':1,'PRIVATE`GetIntOrder[C$T[Index[Gluon, Ext[1]]] . sd]':1})
+
+GC_144 = Coupling(name = 'GC_144',
+                  value = 'complex(0,1)*G**2*Dot(subar,T(2))*Dot(T(1),su)',
+                  order = {'QCD':2,'PRIVATE`GetIntOrder[subar . C$T[Index[Gluon, Ext[2]]]]':1,'PRIVATE`GetIntOrder[C$T[Index[Gluon, Ext[1]]] . su]':1})
+
+GC_145 = Coupling(name = 'GC_145',
+                  value = 'complex(0,1)*G**2*Dot(sdbar,T(1))*Dot(T(2),sd)',
+                  order = {'QCD':2,'PRIVATE`GetIntOrder[sdbar . C$T[Index[Gluon, Ext[1]]]]':1,'PRIVATE`GetIntOrder[C$T[Index[Gluon, Ext[2]]] . sd]':1})
+
+GC_146 = Coupling(name = 'GC_146',
+                  value = 'complex(0,1)*G**2*Dot(subar,T(1))*Dot(T(2),su)',
+                  order = {'QCD':2,'PRIVATE`GetIntOrder[subar . C$T[Index[Gluon, Ext[1]]]]':1,'PRIVATE`GetIntOrder[C$T[Index[Gluon, Ext[2]]] . su]':1})
 
