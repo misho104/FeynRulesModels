@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Wed 6 Apr 2011 15:37:34
+# Date: Sat 9 Apr 2011 02:33:53
 
 
 from object_library import all_couplings, Coupling
@@ -552,8 +552,4 @@ GC_135 = Coupling(name = 'GC_135',
 GC_136 = Coupling(name = 'GC_136',
                   value = '-(yt*complexconjugate(CKM33))',
                   order = {'QED':1})
-
-GC_137 = Coupling(name = 'GC_137',
-                  value = 'List(complex(0,1)*G,Factor(Hold(P$IndexDelta(Index(Generation,a),Index(Generation,2))))*Factor(Hold(P$IndexDelta(Index(Generation,b),Index(Generation,1))))*T(3,2,1)*Gamma(3,2,1))',
-                  order = {'PRIVATE`GetIntOrder[{I G, C$T[Index[Gluon, Ext[3]], Index[Colour, Ext[2]], Index[Colour, Ext[1]]] Factor[Hold[P$IndexDelta[Index[Generation, a], Index[Generation, Index[Generation, Ext[2]]]]]] Factor[Hold[P$IndexDelta[Index[Generation, b], Index[Generation, Index[Generation, Ext[1]]]]]] L$Ga[Index[Lorentz, Ext[3]], Index[Spin, Ext[2]], Index[Spin, Ext[1]]]}]':1})
 
