@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Tue 19 Apr 2011 11:02:43
+# Date: Tue 19 Apr 2011 13:21:40
 
 
 
@@ -137,13 +137,13 @@ Wchi = Parameter(name = 'Wchi',
                  lhablock = 'FRBlock',
                  lhacode = [ 2 ])
 
-y = Parameter(name = 'y',
-              nature = 'external',
-              type = 'real',
-              value = 1.,
-              texname = 'y',
-              lhablock = 'FRBlock',
-              lhacode = [ 3 ])
+ychi = Parameter(name = 'ychi',
+                 nature = 'external',
+                 type = 'real',
+                 value = 1.,
+                 texname = 'y_{\\chi }',
+                 lhablock = 'FRBlock',
+                 lhacode = [ 3 ])
 
 Me = Parameter(name = 'Me',
                nature = 'external',

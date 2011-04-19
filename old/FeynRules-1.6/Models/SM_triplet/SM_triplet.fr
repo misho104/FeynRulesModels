@@ -28,10 +28,10 @@ M$Parameters = {
         TeX           -> Subscript["W","\[Chi]"],
         Value         -> 0,
         Description   -> "Triplet width in GeV"},
-  y == {
+  ychi == {
         ParameterType -> External,
         InteractionOrder -> {EXT, 1},
-        TeX -> "y",
+        TeX           -> Subscript["y","\[Chi]"],
         Value -> 1.0,
         Description -> "UTP coupling constant" }
 }
@@ -58,10 +58,10 @@ M$ClassesDescription = {
 
 (*****************************************************************************************)
 
-LCHI := Module[{udd,uddCC,Msquark, g,ga,gb, c,c1,c2,c3, sp,i,j,k,mu},
+LCHI := Module[{c, c1,c2,c3, sp,mu},
          (*** UDD Terms Definition ***)
-           Eps[c1,c2,c3] chi[c1] CC[uqbar[sp, 3, c2]].uq[sp, 1, c3]
-         + Eps[c1,c2,c3] HC[chi[c1]] uqbar[sp, 1, c3].CC[uq[sp, 3, c2]]
+           ychi Eps[c1,c2,c3] chi[c1] CC[uqbar[sp, 3, c2]].uq[sp, 1, c3]
+         + ychi Eps[c1,c2,c3] HC[chi[c1]] uqbar[sp, 1, c3].CC[uq[sp, 3, c2]]
          + HC[DC[chi[c], mu]].DC[chi[c], mu]
          - Mchi^2 HC[chi[c]].chi[c]
 ];
