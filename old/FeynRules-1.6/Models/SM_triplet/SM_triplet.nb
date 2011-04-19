@@ -1,0 +1,87 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      3152,         78]
+NotebookOptionsPosition[      2849,         63]
+NotebookOutlinePosition[      3203,         79]
+CellTagsIndexPosition[      3160,         76]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"$FeynRulesPath", "<>", "\"\<\\\\Models\\\\SM_triplet\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "FeynRules`"}], "\[IndentingNewLine]", 
+ RowBox[{"LoadModel", "[", 
+  RowBox[{"\"\<..\\\\SM\\\\SM.fr\>\"", ",", "\"\<SM_triplet.fr\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"WriteUFO", "[", 
+  RowBox[{
+  "LGauge", ",", "LHiggs", ",", "LFermions", ",", "LYukawa", ",", "LGhost", 
+   ",", "LCHI"}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.510991279470537*^9, {3.5109914318625374`*^9, 3.510991432741537*^9}, {
+   3.510991938904537*^9, 3.5109919476405373`*^9}, {3.510992081042537*^9, 
+   3.5109921443175373`*^9}, {3.510993458418537*^9, 3.5109934604335375`*^9}, {
+   3.5109936224095373`*^9, 3.5109936475275373`*^9}, {3.5109940747985373`*^9, 
+   3.5109940749105372`*^9}, {3.511010332078537*^9, 3.511010332670537*^9}, {
+   3.511010585872537*^9, 3.511010593151537*^9}, {3.511076946984305*^9, 
+   3.5110769537703166`*^9}, 3.5110806913394985`*^9, {3.5110810828709936`*^9, 
+   3.5110811079090376`*^9}, {3.511082000530237*^9, 3.5110820007018375`*^9}, {
+   3.511082122772052*^9, 3.5110821316484675`*^9}, {3.5110821972621827`*^9, 
+   3.511082198400985*^9}, {3.511082529589435*^9, 3.511082530728237*^9}, {
+   3.511082656277258*^9, 3.5110826582428613`*^9}, {3.511154374974339*^9, 
+   3.5111543799195476`*^9}, 3.511154720982947*^9, 3.5112345821863856`*^9, {
+   3.511240751026082*^9, 3.511240782896938*^9}, {3.512166718714918*^9, 
+   3.512166735235347*^9}, {3.512167069715534*^9, 3.512167091071972*^9}, {
+   3.512167312514361*^9, 3.512167315774767*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"CheckHermiticity", "[", "LCHI", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CheckDiagonalKineticTerms", "[", "LCHI", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CheckDiagonalMassTerms", "[", "LCHI", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CheckDiagonalQuadraticTerms", "[", "LCHI", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CheckKineticTermNormalisation", "[", "LCHI", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CheckMassSpectrum", "[", "LCHI", "]"}]}], "Input",
+ CellChangeTimes->{{3.5109913965065374`*^9, 3.510991414005537*^9}, {
+   3.5109921603635373`*^9, 3.510992223816537*^9}, 3.510994227109537*^9, {
+   3.5121667394473543`*^9, 3.5121667495873723`*^9}}]
+},
+WindowSize->{1008, 504},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (2009\:5e744\:670823\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1613, 27, 92, "Input"],
+Cell[2161, 49, 684, 12, 132, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

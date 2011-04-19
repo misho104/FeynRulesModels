@@ -1,0 +1,67 @@
+(* SM + up-top-triplet; along Shu, Tait, Wang's paper.                                         *)
+(*      Based on the Standard Model file in FeynRules6, written by N. Christensen and C. Duhr. *)
+
+
+If[Or[Not[ValueQ[M$ModelName]], M$ModelName != "Standard Model"], Print["[ERROR] Standard Model must be loaded."]; Abort[]]
+
+M$ModelName = "SM_plus_triplet";
+
+M$Information = {Authors      -> "Sho Iwamoto",
+                 Version      -> "0.1",
+                 Date         -> "Apr, 19. 2011",
+                 Institutions -> "The University of Tokyo",
+                 Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
+                };
+
+(*****************************************************************************************)
+
+(*****************************************************************************************)
+
+M$Parameters = {
+  Mchi   == {
+        ParameterType -> External,
+        TeX           -> Subscript["M","\[Chi]"],
+        Value         -> 200,
+        Description   -> "Triplet mass in GeV"},
+  Wchi   == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","\[Chi]"],
+        Value         -> 0,
+        Description   -> "Triplet width in GeV"},
+  y == {
+        ParameterType -> External,
+        InteractionOrder -> {EXT, 1},
+        TeX -> "y",
+        Value -> 1.0,
+        Description -> "UTP coupling constant" }
+}
+
+(*****************************************************************************************)
+
+M$ClassesDescription = {
+  (* utphi => 3 3 3; 2/3+2/3+(-4/3)*)
+  S[4] == {
+        ClassName        -> chi,
+        SelfConjugate    -> False,
+        Indices          -> {Index[Colour]},
+        QuantumNumbers   -> { Q -> -4/3 },
+        Mass             -> {Mchi,Internal},
+        Width            -> {Wchi,Internal},
+        ParticleName     -> "chi",
+        AntiParticleName -> "chi~",
+        PropagatorLabel  -> "chi",
+        FullName         -> "triplet-chi",
+        PropagatorType   -> ScalarDash,
+        PropagatorArrow  -> Forward
+       }
+}
+
+(*****************************************************************************************)
+
+LCHI := Module[{udd,uddCC,Msquark, g,ga,gb, c,c1,c2,c3, sp,i,j,k,mu},
+         (*** UDD Terms Definition ***)
+           Eps[c1,c2,c3] chi[c1] CC[uqbar[sp, 3, c2]].uq[sp, 1, c3]
+         + Eps[c1,c2,c3] HC[chi[c1]] uqbar[sp, 1, c3].CC[uq[sp, 3, c2]]
+         + HC[DC[chi[c], mu]].DC[chi[c], mu]
+         - Mchi^2 HC[chi[c]].chi[c]
+];
