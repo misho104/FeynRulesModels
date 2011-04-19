@@ -60,8 +60,8 @@ M$ClassesDescription = {
 
 LCHI := Module[{c, c1,c2,c3, sp,mu},
          (*** UDD Terms Definition ***)
-           ychi Eps[c1,c2,c3] chi[c1] CC[uqbar[sp, 3, c2]].uq[sp, 1, c3]
-         + ychi Eps[c1,c2,c3] HC[chi[c1]] uqbar[sp, 1, c3].CC[uq[sp, 3, c2]]
+           ychi Eps[c1,c2,c3] chi[c1] CC[uqbar[sp, 3, c2]].right[uq[sp, 1, c3]]
+         + ychi Eps[c1,c2,c3] HC[chi[c1]] uqbar[sp, 1, c3].left[CC[uq[sp, 3, c2]]]
          + HC[DC[chi[c], mu]].DC[chi[c], mu]
          - Mchi^2 HC[chi[c]].chi[c]
 ];

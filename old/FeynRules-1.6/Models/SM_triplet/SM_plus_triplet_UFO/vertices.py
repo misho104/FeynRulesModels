@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 535 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Tue 19 Apr 2011 13:21:40
+# Date: Tue 19 Apr 2011 20:16:46
 
 
 from object_library import all_vertices, Vertex
@@ -432,13 +432,13 @@ V_70 = Vertex(name = 'V_70',
 V_71 = Vertex(name = 'V_71',
               particles = [ P.u, P.t, P.chi ],
               color = [ 'Epsilon(1,2,3)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS3 ],
               couplings = {(0,0):C.GC_79})
 
 V_72 = Vertex(name = 'V_72',
               particles = [ P.u__tilde__, P.t__tilde__, P.chi__tilde__ ],
               color = [ 'EpsilonBar(1,2,3)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS4 ],
               couplings = {(0,0):C.GC_79})
 
 V_73 = Vertex(name = 'V_73',
