@@ -10,26 +10,39 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      3152,         78]
-NotebookOptionsPosition[      2849,         63]
-NotebookOutlinePosition[      3203,         79]
-CellTagsIndexPosition[      3160,         76]
+NotebookDataLength[      4762,        123]
+NotebookOptionsPosition[      4415,        107]
+NotebookOutlinePosition[      4772,        123]
+CellTagsIndexPosition[      4729,        120]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[{
- RowBox[{"SetDirectory", "[", 
-  RowBox[{"$FeynRulesPath", "<>", "\"\<\\\\Models\\\\SM_triplet\>\""}], 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{"<<", "FeynRules`"}], "\[IndentingNewLine]", 
- RowBox[{"LoadModel", "[", 
-  RowBox[{"\"\<..\\\\SM\\\\SM.fr\>\"", ",", "\"\<SM_triplet.fr\>\""}], 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{"WriteUFO", "[", 
-  RowBox[{
-  "LGauge", ",", "LHiggs", ",", "LFermions", ",", "LYukawa", ",", "LGhost", 
-   ",", "LCHI"}], "]"}]}], "Input",
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FeynRulesPath", ",", "\"\<Models\>\"", ",", "\"\<SM_triplet\>\""}], 
+     "}"}], "]"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "FeynRules`"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LoadModel", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<..\>\"", ",", "\"\<SM\>\"", ",", "\"\<SM.fr\>\""}], "}"}], 
+     "]"}], ",", "\"\<SM_triplet.fr\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteUFO", "[", 
+   RowBox[{
+   "LGauge", ",", "LHiggs", ",", "LFermions", ",", "LYukawa", ",", "LGhost", 
+    ",", "LCHI"}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{
   3.510991279470537*^9, {3.5109914318625374`*^9, 3.510991432741537*^9}, {
    3.510991938904537*^9, 3.5109919476405373`*^9}, {3.510992081042537*^9, 
@@ -45,7 +58,38 @@ Cell[BoxData[{
    3.5111543799195476`*^9}, 3.511154720982947*^9, 3.5112345821863856`*^9, {
    3.511240751026082*^9, 3.511240782896938*^9}, {3.512166718714918*^9, 
    3.512166735235347*^9}, {3.512167069715534*^9, 3.512167091071972*^9}, {
-   3.512167312514361*^9, 3.512167315774767*^9}}],
+   3.512167312514361*^9, 3.512167315774767*^9}, {3.5141512920445375`*^9, 
+   3.514151302859537*^9}, {3.514151359656537*^9, 3.514151365031537*^9}, {
+   3.5141692417185373`*^9, 3.514169320437537*^9}, 3.514169354147537*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FeynRulesPath", ",", "\"\<Models\>\"", ",", "\"\<SM_triplet\>\""}], 
+     "}"}], "]"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "FeynRules`"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LoadModel", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<..\>\"", ",", "\"\<SM\>\"", ",", "\"\<SM.fr\>\""}], "}"}], 
+     "]"}], ",", "\"\<SM_triplet.fr\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "True"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteFeynArtsOutput", "[", 
+   RowBox[{
+   "LGauge", ",", "LHiggs", ",", "LFermions", ",", "LYukawa", ",", "LGhost", 
+    ",", "LCHI"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5141692509035378`*^9, 3.514169259095537*^9}, {
+  3.514169361812537*^9, 3.5141693652515373`*^9}, {3.5141694125935373`*^9, 
+  3.5141694167835374`*^9}}],
 
 Cell[BoxData[{
  RowBox[{"CheckHermiticity", "[", "LCHI", "]"}], "\[IndentingNewLine]", 
@@ -62,7 +106,7 @@ Cell[BoxData[{
    3.5121667394473543`*^9, 3.5121667495873723`*^9}}]
 },
 WindowSize->{1008, 504},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{Automatic, -9}, {Automatic, 124}},
 FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (2009\:5e744\:670823\
 \:65e5)",
 StyleDefinitions->"Default.nb"
@@ -78,8 +122,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 1613, 27, 92, "Input"],
-Cell[2161, 49, 684, 12, 132, "Input"]
+Cell[545, 20, 2144, 42, 112, "Input"],
+Cell[2692, 64, 1032, 27, 112, "Input"],
+Cell[3727, 93, 684, 12, 132, "Input"]
 }
 ]
 *)
