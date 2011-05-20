@@ -19,11 +19,13 @@ M$Information = {Authors -> {"N. Christensen", "C. Duhr"},
              Emails -> {"neil@pa.msu.edu", "claude.duhr@uclouvain.be"},
              URLs -> "http://feynrules.phys.ucl.ac.be/view/Main/StandardModel"};
 
-(*V1.1 - Fixed yukawa couplings in Feynman gauge.
-	Changed yd[n] CKM[n,m] to yd[m] CKM[n,m].
-	Changed yu[n] Conjugate[CKM[m,n]] to yu[m] Conjugate[CKM[m,n]].
+(*
+  V1.3 - Updated Top quark mass to 2010 PDG value (172 GeV)
   V1.2 - Set FeynmanGauge=True as default.  
          Set Gluonic ghosts to be included in both gauges.
+  V1.1 - Fixed yukawa couplings in Feynman gauge.
+	Changed yd[n] CKM[n,m] to yd[m] CKM[n,m].
+	Changed yu[n] Conjugate[CKM[m,n]] to yu[m] Conjugate[CKM[m,n]].
   V1.3 - Added yukawa couplings for all fermions for gauge invariance.
          Added yukawa couplings for 1st generation fermions to Massless.rst.
 	 Updated parameters to PDG 2010.
@@ -378,7 +380,7 @@ M$ClassesDescription = {
         FlavorIndex -> Generation,
 	SelfConjugate -> False,
 	Indices -> {Index[Generation], Index[Colour]},
-	Mass -> {Mu, {MU, 2.55*10^(-3)}, {MC, 1.27}, {MT, 172.0}},
+	Mass -> {Mu, {MU, 2.55*10^(-3)}, {MC, 1.42}, {MT, 172}},
         Width -> {0, 0, {WT, 1.50833649}},
 	QuantumNumbers -> {Q -> 2/3},
 	PropagatorLabel -> {"uq", "u", "c", "t"},
