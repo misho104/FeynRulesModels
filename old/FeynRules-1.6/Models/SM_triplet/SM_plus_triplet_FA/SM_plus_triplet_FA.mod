@@ -610,9 +610,9 @@ C[ S[1] , -U[2] , U[2] ] == {{((-I/2)*EL*MZ)/(cw*sw), 0, 0}},
 
 C[ -U[5, {e2x1}] , U[5, {e3x1}] , V[4, {e1x2}] ] == {{gc163*SUNF[e1x2, e2x1, e3x1], 0, 0}, {gc163*SUNF[e1x2, e2x1, e3x1], 0, 0}, {0, 0, 0}},
 
-C[ -F[9, {e2x2}] , -F[7, {e3x2}] , -S[4, {e1x1}] ] == {{I*gc164*IndexEps[e2x2, e3x2, e1x1], 0, 0}, {0, 0, 0}},
+C[ -F[9, {e2x2}] , -F[7, {e3x2}] , -S[4, {e1x1}] ] == {{I*gc164[e2x2, e3x2, e1x1], 0, 0}, {0, 0, 0}},
 
-C[ F[9, {e2x2}] , F[7, {e3x2}] , S[4, {e1x1}] ] == {{0, 0, 0}, {I*gc165R*IndexEps[e2x2, e3x2, e1x1], 0, 0}},
+C[ F[9, {e2x2}] , F[7, {e3x2}] , S[4, {e1x1}] ] == {{0, 0, 0}, {I*gc165R[e2x2, e3x2, e1x1], 0, 0}},
 
 C[ S[4, {e1x1}] , -S[4, {e2x1}] , V[4, {e3x2}] ] == {{(-I)*gc166*SUNT[e3x2, e2x1, e1x1], 0, 0}, {I*gc166*SUNT[e3x2, e2x1, e1x1], 0, 0}},
 
@@ -787,8 +787,8 @@ M$FACouplings = {
      gc159 -> (cw*EL)/sw,
      gc161 -> -((cw*EL)/sw),
      gc163 -> GS,
-     gc164 -> ychi,
+     gc164[e2x2_, e3x2_, e1x1_] -> ychi*Eps[e1x1, e2x2, e3x2],
      gc165L -> 1,
-     gc165R -> ychi,
+     gc165R[e2x2_, e3x2_, e1x1_] -> ychi*Eps[e1x1, e2x2, e3x2],
      gc166 -> -GS};
 

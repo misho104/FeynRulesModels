@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules $Revision: 535 $
+# This file was automatically created by FeynRules $Revision: 634 $
 # Mathematica version: 7.0 for Microsoft Windows (32-bit) (April 23, 2009)
-# Date: Sat 9 Apr 2011 02:33:52
+# Date: Fri 20 May 2011 23:23:18
 
 
 
@@ -156,7 +156,7 @@ MU = Parameter(name = 'MU',
 MC = Parameter(name = 'MC',
                nature = 'external',
                type = 'real',
-               value = 1.27,
+               value = 1.42,
                texname = '\\text{MC}',
                lhablock = 'MASS',
                lhacode = [ 4 ])
@@ -164,7 +164,7 @@ MC = Parameter(name = 'MC',
 MT = Parameter(name = 'MT',
                nature = 'external',
                type = 'real',
-               value = 172.,
+               value = 172,
                texname = '\\text{MT}',
                lhablock = 'MASS',
                lhacode = [ 6 ])
