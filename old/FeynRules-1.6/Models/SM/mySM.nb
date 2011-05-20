@@ -1,0 +1,98 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      3319,         89]
+NotebookOptionsPosition[      3016,         74]
+NotebookOutlinePosition[      3370,         90]
+CellTagsIndexPosition[      3327,         87]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"$FeynRulesPath", "<>", "\"\<\\\\Models\\\\SM\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "FeynRules`"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LoadModel", "[", "\"\<SM.fr\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteUFO", "[", 
+   RowBox[{
+   "LGauge", ",", "LHiggs", ",", "LFermions", ",", "LYukawa", ",", "LGhost"}],
+    "]"}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.510991279470537*^9, {3.5109914318625374`*^9, 3.510991432741537*^9}, {
+   3.510991938904537*^9, 3.5109919476405373`*^9}, {3.510992081042537*^9, 
+   3.5109921443175373`*^9}, {3.510993458418537*^9, 3.5109934604335375`*^9}, {
+   3.5109936224095373`*^9, 3.5109936475275373`*^9}, {3.5109940747985373`*^9, 
+   3.5109940749105372`*^9}, {3.511010332078537*^9, 3.511010332670537*^9}, {
+   3.511010585872537*^9, 3.511010593151537*^9}, {3.511076946984305*^9, 
+   3.5110769537703166`*^9}, 3.5110806913394985`*^9, {3.5110810828709936`*^9, 
+   3.5110811079090376`*^9}, {3.511082000530237*^9, 3.5110820007018375`*^9}, {
+   3.511082122772052*^9, 3.5110821316484675`*^9}, {3.5110821972621827`*^9, 
+   3.511082198400985*^9}, {3.511082529589435*^9, 3.511082530728237*^9}, {
+   3.511082656277258*^9, 3.5110826582428613`*^9}, {3.511154374974339*^9, 
+   3.5111543799195476`*^9}, 3.511154720982947*^9, 3.5112345821863856`*^9, {
+   3.511240751026082*^9, 3.511240782896938*^9}, {3.512166718714918*^9, 
+   3.512166735235347*^9}, {3.512167069715534*^9, 3.512167091071972*^9}, {
+   3.512167312514361*^9, 3.512167315774767*^9}, {3.5141512920445375`*^9, 
+   3.514151302859537*^9}, {3.514151359656537*^9, 3.514151365031537*^9}, {
+   3.5141514951205373`*^9, 3.514151512333537*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"$FeynRulesPath", "<>", "\"\<\\\\Models\\\\SM\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "FeynRules`"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LoadModel", "[", "\"\<SM.fr\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteFeynArtsOutput", "[", 
+   RowBox[{
+   "LGauge", ",", "LHiggs", ",", "LFermions", ",", "LYukawa", ",", "LGhost"}],
+    "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.514151368904537*^9, 3.5141514356375375`*^9}, {
+  3.5141515001595373`*^9, 3.514151521213537*^9}}]
+},
+WindowSize->{1234, 694},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (2009\:5e744\:670823\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1762, 32, 92, "Input"],
+Cell[2310, 54, 702, 18, 112, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
