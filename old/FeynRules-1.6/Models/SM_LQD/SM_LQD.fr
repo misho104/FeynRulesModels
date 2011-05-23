@@ -1,0 +1,162 @@
+(* SM + RpV-SUSY LQD Interaction                                                               *)
+(*      Based on the Standard Model file in FeynRules6, written by N. Christensen and C. Duhr. *)
+
+
+If[Or[Not[ValueQ[M$ModelName]], M$ModelName != "Standard Model"], Print["[ERROR] Standard Model must be loaded."]; Abort[]]
+
+M$ModelName = "SM_plus_LQD";
+
+M$Information = {Authors      -> "Sho Iwamoto",
+                 Version      -> "0.1",
+                 Date         -> "May, 22. 2011",
+                 Institutions -> "The University of Tokyo",
+                 Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
+                };
+
+(*****************************************************************************************)
+
+IndexRange[Index[SCA]] = Range[6]; IndexStyle[SCA, i];
+
+(*****************************************************************************************)
+
+M$Parameters = {
+  MsqL   == {
+        ParameterType -> External,
+        TeX           -> Subsuperscript["M","sq","L"],
+        Value         -> 200,
+        Description   -> "Left-handed Squark mass in GeV"},
+  MsqR   == {
+        ParameterType -> External,
+        TeX           -> Subsuperscript["M","sq","R"],
+        Value         -> 200,
+        Description   -> "Right-handed Squark mass in GeV"},
+  Wsq    == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","sq"],
+        Value         -> 0,
+        Description   -> "Squark width in GeV"},
+  MslL   == {
+        ParameterType -> External,
+        TeX           -> Subsuperscript["M","sl","L"],
+        Value         -> 200,
+        Description   -> "Left-handed Slepton mass in GeV"},
+  MslR   == {
+        ParameterType -> External,
+        TeX           -> Subsuperscript["M","sl","R"],
+        Value         -> 200,
+        Description   -> "Right-handed Slepton mass in GeV"},
+  Wsl    == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","sl"],
+        Value         -> 0,
+        Description   -> "Slepton width in GeV"},
+
+
+  LQD331 == {
+        ParameterType -> External,
+        InteractionOrder -> {RPV, 1},
+        TeX -> Subsuperscript["\[Lambda]", "331", "\[Prime]"],
+        Value -> 1.0,
+        Description -> "RpV-LQD331 coupling constant" }
+}
+
+(*****************************************************************************************)
+
+M$ClassesDescription = {
+  S[4] == {
+        ClassName        -> su,
+        SelfConjugate    -> False,
+        Indices          -> {Index[SCA], Index[Colour]},
+        FlavorIndex      -> SCA,
+        QuantumNumbers   -> { Q -> 2/3 },
+        PDG              ->        { 1000002  ,  1000004  ,  1000006  ,  2000002  ,  2000004  ,  2000006   },
+        ParticleName     ->        { "suL"    ,  "scL"    ,  "stL"    ,  "suR"    ,  "scR"    ,  "stR"     },
+        AntiParticleName ->        { "suL~"   ,  "scL~"   ,  "stL~"   ,  "suR~"   ,  "scR~"   ,  "stR~"    },
+        ClassMembers     ->        {  suL     ,   scL     ,   stL     ,   suR     ,   scR     ,   stR      },
+        Mass             -> {{MsqL,Internal},{MsqL,Internal},{MsqL,Internal},{MsqR,Internal},{MsqR,Internal},{MsqR,Internal}},
+         Width            -> {{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal}},
+        PropagatorLabel  -> { "su",  "suL"    ,  "scL"    ,  "stL"    ,  "suR"    ,  "scR"    ,  "stR"     },
+        FullName         -> { "u-squark-left", "c-squark-left", "t-squark-left", "u-squark-right", "c-squark-right", "t-squark-right"},
+        PropagatorType   -> ScalarDash,
+        PropagatorArrow  -> Forward
+       },
+  S[5] == {
+        ClassName        -> sd,
+        SelfConjugate    -> False,
+        Indices          -> {Index[SCA], Index[Colour]},
+        FlavorIndex      -> SCA,
+        QuantumNumbers   -> { Q -> -1/3 },
+        PDG              ->        { 1000001, 1000003, 1000005, 2000001, 2000003, 2000005 },
+        ParticleName     ->        { "sdL"  , "ssL"  , "sbL"  , "sdR"  , "ssR"  , "sbR"   },
+        AntiParticleName ->        { "sdL~" , "ssL~" , "sbL~" , "sdR~" , "ssR~" , "sbR~"  },
+        ClassMembers     ->        {  sdL   ,  ssL   ,  sbL   ,  sdR   ,  ssR   ,  sbR    },
+        Mass             -> {{MsqL,Internal},{MsqL,Internal},{MsqL,Internal},{MsqR,Internal},{MsqR,Internal},{MsqR,Internal}},
+        Width            -> {{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal},{Wsq, Internal}},
+        PropagatorLabel  -> { "sd",  "sdL"  , "ssL"  , "sbL"  , "sdR"  , "ssR"  , "sbR"   },
+        FullName         -> { "d-squark-left", "s-squark-left", "b-squark-left", "d-squark-right", "s-squark-right", "b-squark-right"},
+        PropagatorType   -> ScalarDash,
+        PropagatorArrow  -> Forward
+       },
+  S[6] == {
+        ClassName        -> sl,
+        SelfConjugate    -> False,
+        Indices          -> {Index[SCA]},
+        FlavorIndex      -> SCA,
+        QuantumNumbers   -> { LeptonNumber -> 1, Q -> -1},
+        PDG              ->        { 1000011  ,  1000013  ,  1000015  ,  2000011  ,  2000013  ,  2000015   },
+        ParticleName     ->        { "selL"   ,  "smuL"   ,  "staL"   ,  "selR"   ,  "smuR"   ,  "staR"    },
+        AntiParticleName ->        { "selL~"  ,  "smuL~"  ,  "staL~"  ,  "selR~"  ,  "smuR~"  ,  "staR~"   },
+        ClassMembers     ->        {  selL    ,   smuL    ,   staL    ,   selR    ,   smuR    ,   staR     },
+        Mass             -> {{MslL,Internal},{MslL,Internal},{MslL,Internal},{MslR,Internal},{MslR,Internal},{MslR,Internal}},
+        Width            -> {{Wsl, Internal},{Wsl, Internal},{Wsl, Internal},{Wsl, Internal},{Wsl, Internal},{Wsl, Internal}},
+        PropagatorLabel  -> { "sl",  "selL"   ,  "smuL"   ,  "staL"   ,  "selR"   ,  "smuR"   ,  "staR"    },
+        FullName         -> { "selectron-left", "smuon-left", "stau-left", "selectron-right", "smuon-right", "stau-right"},
+        PropagatorType   -> ScalarDash,
+        PropagatorArrow  -> Forward
+       },
+  S[7] == {
+        ClassName        -> snu,
+        SelfConjugate    -> False,
+        Indices          -> {Index[SCA]},
+        FlavorIndex      -> SCA,
+        QuantumNumbers   -> { LeptonNumber -> 1},
+        PDG              ->        { 1000012  ,  1000014  ,  1000016  ,  2000012  ,  2000014  ,  2000016   },
+        ParticleName     ->        { "sn1L"   ,  "sn2L"   ,  "sn3L"   ,  "sn1R"   ,  "sn2R"   ,  "sn3R"    },
+        AntiParticleName ->        { "sn1L~"  ,  "sn2L~"  ,  "sn3L~"  ,  "sn1R~"  ,  "sn2R~"  ,  "sn3R~"   },
+        ClassMembers     ->        {  sn1L    ,   sn2L    ,   sn3L    ,   sn1R    ,   sn2R    ,   sn3R     },
+        Mass             -> {{MslL,Internal},{MslL,Internal},{MslL,Internal},{MslR,Internal},{MslR,Internal},{MslR,Internal}},
+        Width            -> {{Wsl, Internal},{Wsl, Internal},{Wsl, Internal},{Wsl, Internal},{Wsl, Internal},{Wsl, Internal}},
+        PropagatorLabel  -> { "snu", "sn1L"   ,  "sn2L"   ,  "sn3L"   ,  "sn1R"   ,  "sn2R"   ,  "sn3R"    },
+        FullName         -> { "sneutrino1-left", "sneutrino2-left", "sneutrino3-left", "sneutrino1-right", "sneutrino2-right", "sneutrino3-right"},
+        PropagatorType   -> ScalarDash,
+        PropagatorArrow  -> Forward
+       }
+}
+
+(*****************************************************************************************)
+
+LRPV := Module[{lqd,lqdCC,Msquark, Mslepton,c, sp,i,j,k,mu},
+         (*** LQD Terms Definition ***)
+         lqd[i_,j_,k_]   :=    snu[i]         dqbar[sp, k, c] .left [dq[sp, j, c]]
+                          -    sl [i]         dqbar[sp, k,  c] .left [uq[sp, j, c]]
+                          +    sd [j,c]       dqbar[sp, k, c] .left [vl[sp, i]   ]
+                          -    su [j,c]       dqbar[sp, k, c] .left [l [sp, i]   ]
+                          + HC[sd [k+3,c]] CC[vlbar[sp, i]     ].left [dq[sp, j, c]]
+                          - HC[sd [k+3,c]] CC[lbar [sp, i]     ].left [uq[sp, j, c]];
+         lqdCC[i_,j_,k_] := HC[snu[i]    ]    dqbar[sp, j,   c] .right[dq[sp,   k, c]]
+                          - HC[sl [i]    ]    uqbar[sp, j,   c] .right[dq[sp,   k, c]]
+                          + HC[sd [j,c]  ]    vlbar[sp, i]      .right[dq[sp,   k, c]]
+                          - HC[su [j,c]  ]    lbar [sp, i]      .right[dq[sp,   k, c]]
+                          +    sd [k+3,c]     vlbar[sp, i]      .right[CC[dq[sp, j, c]]]
+                          -    sd [k+3,c]     lbar [sp, i]      .right[CC[uq[sp, j, c]]];
+         Msquark [i_] := If[i<4, MsqL, MsqR];
+         Mslepton[i_] := If[i<4, MslL, MslR];
+         (*** The Lagrangian ***)
+           HC[DC[su[i,c], mu]].DC[su[i,c], mu]+HC[DC[sd[i,c], mu]].DC[sd[i,c], mu]
+         + HC[DC[sl[i], mu]].DC[sl[i], mu]+HC[DC[snu[i], mu]].DC[snu[i], mu]
+         - Msquark[i]^2  HC[su[i,c]].su[i,c]
+         - Msquark[i]^2  HC[sd[i,c]].sd[i,c]
+         - Mslepton[i]^2 HC[snu[i]].snu[i]
+         - Mslepton[i]^2 HC[sl[i]].sl[i]
+         - LQD331 lqd[3,3,1] - Conjugate[LQD331] lqdCC[3,3,1]
+];
