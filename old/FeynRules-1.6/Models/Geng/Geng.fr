@@ -1,0 +1,147 @@
+(* SM + NR + Odd-Higgs (Z2)                                                                    *)
+(*      Based on the Standard Model file in FeynRules6, written by N. Christensen and C. Duhr. *)
+
+
+M$ModelName = "Geng";
+
+M$Information = {Authors      -> "Sho Iwamoto",
+                 Version      -> "0.1",
+                 Date         -> "May, 25. 2011",
+                 Institutions -> "The University of Tokyo",
+                 Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
+                };
+
+(*****************************************************************************************)
+
+IndexRange[ Index[Generation] ] = Range[3]
+IndexRange[ Index[Colour] ] = NoUnfold[Range[3]]
+IndexRange[ Index[Gluon] ] = NoUnfold[Range[8]]
+IndexRange[ Index[SU2W] ] = Unfold[Range[3]]
+IndexRange[ Index[SU2F] ] = Unfold[Range[2]]
+
+IndexStyle[Colour,     i]
+IndexStyle[Generation, f]
+IndexStyle[Gluon,      a]
+IndexStyle[SU2W,       k]
+IndexStyle[SU2F,       b]
+
+GaugeXi[ V[1] ] = GaugeXi[B];
+GaugeXi[ V[2] ] = GaugeXi[W];
+GaugeXi[ V[3] ] = GaugeXi[G];
+GaugeXi[ U[1] ] = GaugeXi[B];
+GaugeXi[ U[2] ] = GaugeXi[W];
+GaugeXi[ U[3] ] = GaugeXi[G];
+
+M$GaugeGroups = {
+ U1Y  == { Abelian -> True,  GaugeBoson -> B,  Charge -> Y,              CouplingConstant -> gY },
+ SU2L == { Abelian -> False, GaugeBoson -> W,  StructureConstant -> Eps, CouplingConstant -> gW, Representations -> {T2, SU2F} },
+ SU3C == { Abelian -> False, GaugeBoson -> G,  StructureConstant -> f,   CouplingConstant -> gS, SymmetricTensor -> dSUN, Representations -> {T, Colour} }
+}
+
+(*****************************************************************************************)
+
+Print["[Warning] Decay Width for ",Subscript["N","i"]," and \[Eta] is not hard-coded."];
+M$Parameters = {
+
+  Meta   == { ParameterType->External, TeX->Subscript["M","\[Eta]"], Value->200 },
+  MN1    == { ParameterType->Internal, Value->200},
+  MN2    == { ParameterType->Internal, Value->200},
+  MN3    == { ParameterType->Internal, Value->200},
+  YN1    == { ParameterType->Internal, Value->0.001},
+  YN2    == { ParameterType->Internal, Value->0.001},
+  YN3    == { ParameterType->Internal, Value->0.001},
+
+  Lam1   == { ParameterType->External, Value->0.0001},
+  Lam2   == { ParameterType->External, Value->0.0001},
+  Lam3   == { ParameterType->External, Value->0.0001},
+
+  MN     == { ParameterType->Internal, Indices->{Index[Generation]}, AllowSummation->True, Value->{MN[1]->MN1,   MN[2]->MN2,   MN[3]->MN3},   ComplexParameter->False,ParameterName->{MN[1]->MN1x,MN[2]->MN2x,MN[3]->MN3x}},
+  yn     == { ParameterType->Internal, Indices->{Index[Generation]}, AllowSummation->True, Value->{yn[1]->YN1,   yn[2]->YN2,   yn[3]->YN3},   ComplexParameter->False,ParameterName->{yn[1]->yn1x,yn[2]->yn2x,yn[3]->yn3x},InteractionOrder->{QED, 1}},
+
+  gY     == { ParameterType->External, TeX->Subscript["g","Y"],  InteractionOrder->{QED, 1},     Value->0.358},
+  gW     == { ParameterType->External, TeX->Subscript["g","W"],  InteractionOrder->{QED, 1},     Value->0.651},
+  gS     == { ParameterType->External, TeX->Subscript["g","S"],  InteractionOrder->{QCD, 1},     Value->1.2  },
+
+  mh     == { ParameterType->External, TeX->Subscript["m","h"],      Value->120  },
+  v      == { ParameterType->External, TeX->Subscript["v","H"],      Value->246  },
+  muH    == { ParameterType->Internal,                               Value -> MH/Sqrt[2] },
+  lam    == { ParameterType->Internal, InteractionOrder->{QED, 2},   Value -> (muH/v)^2  },
+
+  ymdo  == { ParameterType -> External, BlockName -> YUKAWA, Value ->   5.04*10^(-3), OrderBlock -> {1},  Description -> "Down Yukawa mass"},
+  ymup  == { ParameterType -> External, BlockName -> YUKAWA, Value ->   2.55*10^(-3), OrderBlock -> {2},  Description -> "Up Yukawa mass"},
+  yms   == { ParameterType -> External, BlockName -> YUKAWA, Value ->   0.101,        OrderBlock -> {3},  Description -> "Strange Yukawa mass"},
+  ymc   == { ParameterType -> External, BlockName -> YUKAWA, Value ->   1.27,         OrderBlock -> {4},  Description -> "Charm Yukawa mass"},
+  ymb   == { ParameterType -> External, BlockName -> YUKAWA, Value ->   4.7,          OrderBlock -> {5},  Description -> "Bottom Yukawa mass"},
+  ymt   == { ParameterType -> External, BlockName -> YUKAWA, Value -> 172.0,          OrderBlock -> {6},  Description -> "Top Yukawa mass"},
+  yme   == { ParameterType -> External, BlockName -> YUKAWA, Value ->   5.11*10^(-4), OrderBlock -> {11}, Description -> "Electron Yukawa mass"},
+  ymm   == { ParameterType -> External, BlockName -> YUKAWA, Value ->   0.10566,      OrderBlock -> {13}, Description -> "Muon Yukawa mass"},
+  ymtau == { ParameterType -> External, BlockName -> YUKAWA, Value ->   1.777,        OrderBlock -> {15}, Description -> "Tau Yukawa mass"},
+  yl == {  TeX -> Superscript[y, l],  Indices -> {Index[Generation]},  AllowSummation -> True,  ParameterType -> Internal,
+           Value -> {yl[1] -> Sqrt[2] yme   / v,
+                     yl[2] -> Sqrt[2] ymm   / v,
+                     yl[3] -> Sqrt[2] ymtau / v},
+           ParameterName -> {yl[1] -> ye, yl[2] -> ym, yl[3] -> ytau},  InteractionOrder -> {QED, 1},  ComplexParameter -> False,  Description -> "Lepton Yukawa coupling"},
+  yu == {  TeX -> Superscript[y, u],  Indices -> {Index[Generation]},  AllowSummation -> True,  ParameterType -> Internal,
+           Value -> {yu[1] -> Sqrt[2] ymup  / v,
+                     yu[2] -> Sqrt[2] ymc   / v,
+                     yu[3] -> Sqrt[2] ymt   / v},
+           ParameterName -> {yu[1] -> yup, yu[2] -> yc, yu[3] -> yt},  InteractionOrder -> {QED, 1},  ComplexParameter -> False,  Description -> "U-quark Yukawa coupling"},
+  yd == {  TeX -> Superscript[y, d],  Indices -> {Index[Generation]},  AllowSummation -> True,  ParameterType -> Internal,
+           Value -> {yd[1] -> Sqrt[2] ymdo  / v,
+                     yd[2] -> Sqrt[2] yms   / v,
+                     yd[3] -> Sqrt[2] ymb   / v},
+           ParameterName -> {yd[1] -> ydo, yd[2] -> ys, yd[3] -> yb},  InteractionOrder -> {QED, 1},  ComplexParameter -> False,  Description -> "D-quark Yukawa coupling"}
+
+}
+
+
+
+
+(*****************************************************************************************)
+
+
+M$ClassesDescription = {
+
+  F[1] == { ClassName->Ll, ClassMembers->{L1,L2,L3}, FlavorIndex->Generation, SelfConjugate->False, Indices->{Index[Generation],Index[SU2F]}, Mass->0, Width->0, QuantumNumbers->{Y->-1/2,LeptonNumber->1}, PropagatorLabel->{"L", "L1", "L2", "L3"}, PropagatorType->S, PropagatorArrow->Forward },
+  F[2] == { ClassName->Er, ClassMembers->{E1,E2,E3}, FlavorIndex->Generation, SelfConjugate->False, Indices->{Index[Generation]},             Mass->0, Width->0, QuantumNumbers->{Y->-1,  LeptonNumber->1}, PropagatorLabel->{"E", "E1", "E2", "E3"}, PropagatorType->S, PropagatorArrow->Forward },
+  F[3] == { ClassName->Nr, ClassMembers->{N1,N2,N3}, FlavorIndex->Generation, SelfConjugate->True,  Indices->{Index[Generation]}, Mass->{{MN1,Internal},{MN2,Internal},{MN3,Internal}}, Width->0, PropagatorLabel->{"N", "N1", "N2", "N3"}, PropagatorType->S, PropagatorArrow->Forward },
+
+  S[1] == { ClassName->H,                                                     SelfConjugate->False, Indices->{Index[SU2F]},                   Mass->0, Width->0, QuantumNumbers->{Y-> 1/2,Q->0},            PropagatorLabel->"H",                    PropagatorType->D, PropagatorArrow->Forward },
+  S[2] == { ClassName->Eta,                                                   SelfConjugate->False, Indices->{Index[SU2F]},                Mass->{Meta,Internal}, Width->0, QuantumNumbers->{Y-> 1/2,LeptonNumber->-1},                 PropagatorLabel->"eta",                  PropagatorType->D, PropagatorArrow->Forward },
+
+  V[1] == { ClassName->B,                                                     SelfConjugate->True,  Indices->{},                              Mass->0, Width->0,                                            PropagatorLabel->"B",                    PropagatorType->Sine, PropagatorArrow->None },
+  V[2] == { ClassName->W,                                                     SelfConjugate->True,  Indices->{Index[SU2W]},                   Mass->0, Width->0,                                            PropagatorLabel->"W",                    PropagatorType->Sine, PropagatorArrow->None },
+  V[3] == { ClassName->G,                                                     SelfConjugate->True,  Indices->{Index[Gluon]},                  Mass->0, Width->0,                                            PropagatorLabel->G,                      PropagatorType->C,    PropagatorArrow->None }
+}
+(*****************************************************************************************)
+
+LGauge := Block[{mu,nu,a},
+  -(1/4) FS[G, mu, nu, a] FS[G, mu, nu, a]
+  -(1/4) FS[W, mu, nu, a] FS[W, mu, nu, a]
+  -(1/4) FS[B, mu, nu]    FS[B, mu, nu]
+];
+
+LHiggs := Block[{a,b},
+  - muH   HC[H[a]]   H[a]
+  - muEta HC[Eta[a]] Eta[a]
+  - Lam1  (HC[H[a]] H  [a])(HC[Eta[b]] Eta[b])
+  - Lam2  (HC[H[a]] Eta[a])(HC[Eta[b]] H  [b])
+  - Lam3/4(HC[H[a]]HC[H[b]] Eta[a] Eta[b] + HC[Eta[a]]HC[Eta[b]] H[a] H[b])
+]
+
+LNMass := Block[{i,s,r}, MN[i]/2 Nrbar[s,i].Nr[s,i]];
+
+LFermion := Block[{mu},
+   I   Llbar.Ga[mu].ProjM.DC[Ll, mu]
+ + I   Erbar.Ga[mu].ProjP.DC[Er, mu]
+ + I/2 Nrbar.Ga[mu].DC[Nr, mu]
+ - LNMass - HC[LNMass]
+];
+
+LYuk := Module[{s,r,n,m,i,a,b,z},
+  - yl[n] Erbar[s,n].ProjM[s,r].HC[H[z]].Ll[r,n,z]
+  - Eps[a,b] yn[n] Nrbar[s,n].ProjM[s,r].Ll[r,n,a].Eta[b]
+];
+LYukawa := LYuk + HC[LYuk];
+
+LSM = LGauge + LHiggs + LFermion + LYukawa;
