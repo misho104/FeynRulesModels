@@ -87,9 +87,9 @@ M$ClassesDescription = {
 	Mass  -> {MxW, Internal},
     Width -> {WxW, Internal},
 	QuantumNumbers -> {Q -> 1},
-	ParticleName ->"W+",
-	AntiParticleName ->"W-",
-	PropagatorLabel -> "W",
+	ParticleName ->"xW+",
+	AntiParticleName ->"xW-",
+	PropagatorLabel -> "xW",
 	PropagatorType -> Sine,
 	PropagatorArrow -> Forward,
     FullName -> "W-prime" }

@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules $Revision: 634 $
 # Mathematica version: 7.0 for Mac OS X x86 (64-bit) (April 23, 2009)
-# Date: Tue 12 Jul 2011 17:45:31
+# Date: Wed 13 Jul 2011 09:24:36
 
 
 from __future__ import division
@@ -372,18 +372,18 @@ xZ = Particle(pdg_code = 9000006,
               LeptonNumber = 0,
               GhostNumber = 0)
 
-W__plus__ = Particle(pdg_code = 9000007,
-                     name = 'W+',
-                     antiname = 'W-',
-                     spin = 3,
-                     color = 1,
-                     mass = Param.MxW,
-                     width = Param.WxW,
-                     texname = 'W+',
-                     antitexname = 'W+',
-                     charge = 1,
-                     LeptonNumber = 0,
-                     GhostNumber = 0)
+xW__plus__ = Particle(pdg_code = 9000007,
+                      name = 'xW+',
+                      antiname = 'xW-',
+                      spin = 3,
+                      color = 1,
+                      mass = Param.MxW,
+                      width = Param.WxW,
+                      texname = 'xW+',
+                      antitexname = 'xW+',
+                      charge = 1,
+                      LeptonNumber = 0,
+                      GhostNumber = 0)
 
-W__minus__ = W__plus__.anti()
+xW__minus__ = xW__plus__.anti()
 
