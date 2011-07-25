@@ -109,7 +109,6 @@ Lodd := Module[{c, i, j, mu},
     (* Z prime *)
     -           gZprimeUT    xZ[mu]  uqbar[i, 1, c] .Ga[mu,i,j]. right[uq[j, 3, c]]
     - Conjugate[gZprimeUT]   xZ[mu]  uqbar[i, 3, c] .Ga[mu,i,j]. right[uq[j, 1, c]]
-    -           gZprimeUU    xZ[mu]  uqbar[i, 1, c] .Ga[mu,i,j]. right[uq[j, 1, c]]
 
     (* W prime *)
     -           gWprimeL     xW[mu]  uqbar[i, 3, c] .Ga[mu,i,j]. left [dq[j, 1, c]]

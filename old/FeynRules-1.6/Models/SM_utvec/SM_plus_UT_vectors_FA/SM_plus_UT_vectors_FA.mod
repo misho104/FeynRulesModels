@@ -624,9 +624,7 @@ C[ -F[10, {e1x2}] , F[9, {e2x2}] , -V[6] ] == {{I*gc165L*IndexDelta[e1x2, e2x2],
 
 C[ -F[7, {e2x2}] , F[9, {e1x2}] , V[5] ] == {{0, 0, 0}, {I*gc166R*IndexDelta[e1x2, e2x2], 0, 0}},
 
-C[ -F[9, {e1x2}] , F[7, {e2x2}] , V[5] ] == {{0, 0, 0}, {I*gc167R*IndexDelta[e1x2, e2x2], 0, 0}},
-
-C[ -F[7, {e2x2}] , F[7, {e1x2}] , V[5] ] == {{0, 0, 0}, {I*gc168R*IndexDelta[e1x2, e2x2], 0, 0}}
+C[ -F[9, {e1x2}] , F[7, {e2x2}] , V[5] ] == {{0, 0, 0}, {I*gc167R*IndexDelta[e1x2, e2x2], 0, 0}}
 
 }
 
@@ -804,7 +802,5 @@ M$FACouplings = {
      gc166L -> 1,
      gc166R -> -gZprimeUT,
      gc167L -> 1,
-     gc167R -> -gZprimeUT,
-     gc168L -> 1,
-     gc168R -> -gZprimeUU};
+     gc167R -> -gZprimeUT};
 
