@@ -69,6 +69,13 @@ GaugeXi[ U[31] ] = GaugeXi[W];
 GaugeXi[ U[32] ] = GaugeXi[W];
 GaugeXi[ U[4] ] = GaugeXi[G];
 
+(***** Setting for interaction order (as e.g. used by MadGraph 5)  ******)
+
+M$InteractionOrderHierarchy = {
+     {QCD, 1},
+     {QED, 2}
+    };
+
 
 (****************  Parameters *************)
 
