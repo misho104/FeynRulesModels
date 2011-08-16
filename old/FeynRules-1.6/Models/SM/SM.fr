@@ -71,10 +71,15 @@ GaugeXi[ U[4] ] = GaugeXi[G];
 
 (***** Setting for interaction order (as e.g. used by MadGraph 5)  ******)
 
-(*M$InteractionOrderHierarchy = {
+M$InteractionOrderHierarchy = {
      {QCD, 1},
      {QED, 2}
-    };*)
+    };
+
+M$InteractionOrderLimit = {
+     {QCD, 99},
+     {QED, 99},
+    };
 
 
 (****************  Parameters *************)
