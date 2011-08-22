@@ -8,6 +8,11 @@ SetDirectory[NotebookDirectory[]]
 <<FeynRules`
 LoadModel["mssm.fr"];
 lagr=Lag
+(*
+	WriteRestrictionFile[];
+	LoadRestriction["ZeroValues.rst"];
+	DeleteFile["ZeroValues.rst"];
+*)
 Definition[lagr]>>lagrangian.dat
 
 
