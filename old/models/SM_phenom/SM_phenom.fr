@@ -1,0 +1,142 @@
+(* SM + Phenomenological Particles couples to electrons *)
+(*      Based on the Standard Model file in FeynRules6, written by N. Christensen and C. Duhr. *)
+
+
+If[Or[Not[ValueQ[M$ModelName]], M$ModelName != "Standard Model"], Print["[ERROR] Standard Model must be loaded."]; Abort[]]
+
+M$ModelName = "SM_phenom";
+
+M$Information = {Authors      -> "Sho Iwamoto",
+                 Version      -> "0.1",
+                 Date         -> "Oct, 20. 2011",
+                 Institutions -> "The University of Tokyo",
+                 Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
+                };
+
+(*****************************************************************************************)
+
+M$Parameters = {
+  Msca == {
+        ParameterType -> External,
+        TeX           -> Subscript["M","s"],
+        Value         -> 200,
+        Description   -> "Scalar mass in GeV"},
+  Mvec == {
+        ParameterType -> External,
+        TeX           -> Subscript["M","v"],
+        Value         -> 200,
+        Description   -> "Vector mass in GeV"},
+  Maxi == {
+        ParameterType -> External,
+        TeX           -> Subscript["M","a"],
+        Value         -> 200,
+        Description   -> "Axial-vector mass in GeV"},
+  Mpse == {
+        ParameterType -> External,
+        TeX           -> Subscript["M","p"],
+        Value         -> 200,
+        Description   -> "Pseudo-scalar mass in GeV"},
+  Wsca == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","s"],
+        Value         -> 0,
+        Description   -> "Scalar width in GeV"},
+  Wvec == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","v"],
+        Value         -> 0,
+        Description   -> "Vector width in GeV"},
+  Waxi == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","a"],
+        Value         -> 0,
+        Description   -> "Axial-vector width in GeV"},
+  Wpse == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","p"],
+        Value         -> 0,
+        Description   -> "Pseudo-scalar width in GeV"},
+  Gsca == {
+        ParameterType -> External,
+        TeX           -> Subscript["G","s"],
+        Value         -> 0,
+        Description   -> "Scalar coupling to electrons"},
+  Gvec == {
+        ParameterType -> External,
+        TeX           -> Subscript["G","v"],
+        Value         -> 0,
+        Description   -> "Vector coupling to electrons"},
+  Gaxi == {
+        ParameterType -> External,
+        TeX           -> Subscript["G","a"],
+        Value         -> 0,
+        Description   -> "Axial-vector coupling to electrons"},
+  Gpse == {
+        ParameterType -> External,
+        TeX           -> Subscript["G","p"],
+        Value         -> 0,
+        Description   -> "Pseudo-scalar coupling to electrons"}
+}
+
+(*****************************************************************************************)
+
+M$ClassesDescription = {
+  S[4] == {
+        ClassName        -> sca,
+        SelfConjugate    -> True,
+        PDG              -> 9990001,
+        ParticleName     -> "sca",
+        Mass             -> {Msca,Internal},
+        Width            -> {Wsca,Internal},
+        PropagatorLabel  -> "sca",
+        FullName         -> "extra scalar",
+        PropagatorType   -> ScalarDash
+       },
+  S[5] == {
+        ClassName        -> pse,
+        SelfConjugate    -> True,
+        PDG              -> 9990004,
+        ParticleName     -> "pse",
+        Mass             -> {Mpse,Internal},
+        Width            -> {Wpse,Internal},
+        PropagatorLabel  -> "pse",
+        FullName         -> "extra pseudo-scalar",
+        PropagatorType   -> ScalarDash
+       },
+  V[7] == {
+        ClassName        -> vec,
+        SelfConjugate    -> True,
+        PDG              -> 9990002,
+        ParticleName     -> "vec",
+        Mass             -> {Mvec,Internal},
+        Width            -> {Wvec,Internal},
+        PropagatorLabel  -> "vec",
+        FullName         -> "extra vector",
+        PropagatorType   -> Sine
+       },
+  V[8] == {
+        ClassName        -> axi,
+        SelfConjugate    -> True,
+        PDG              -> 9990003,
+        ParticleName     -> "axi",
+        Mass             -> {Maxi,Internal},
+        Width            -> {Waxi,Internal},
+        PropagatorLabel  -> "axi",
+        FullName         -> "extra axial-vector",
+        PropagatorType   -> Sine
+       }
+}
+
+(*****************************************************************************************)
+
+Lextra := Module[{mu,nu},
+          + (1/2) (del[sca,mu])^2 - (Msca^2/2) sca^2
+          + (1/2) (del[pse,mu])^2 - (Msca^2/2) pse^2
+          - (1/4)(del[vec[mu],nu]-del[vec[nu],mu])^2 + (Mvec^2/2)vec[mu]vec[mu]
+          - (1/4)(del[axi[mu],nu]-del[axi[nu],mu])^2 + (Maxi^2/2)axi[mu]axi[mu]
+
+          +   Gsca sca     ebar.             e
+          + I Gpse pse     ebar.Ga[5].       e
+          +   Gvec vec[mu] ebar.      Ga[mu].e
+          +   Gaxi axi[mu] ebar.Ga[5].Ga[mu].e
+];
