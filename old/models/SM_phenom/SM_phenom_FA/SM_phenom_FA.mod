@@ -812,10 +812,10 @@ M$FACouplings = {
      gc159 -> (cw*EL)/sw,
      gc161 -> -((cw*EL)/sw),
      gc163 -> GS,
-     gc164 -> Gsca,
-     gc165L -> Gpse,
-     gc165R -> -Gpse,
-     gc166 -> Gvec,
-     gc167L -> Gaxi,
-     gc167R -> -Gaxi};
+     gc164 -> -Gsca,
+     gc165L -> -Gpse,
+     gc165R -> Gpse,
+     gc166 -> -Gvec,
+     gc167L -> -Gaxi,
+     gc167R -> Gaxi};
 

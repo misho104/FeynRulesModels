@@ -78,7 +78,7 @@ M$InteractionOrderHierarchy = {
 
 M$InteractionOrderLimit = {
      {QCD, 99},
-     {QED, 99},
+     {QED, 99}
     };
 
 

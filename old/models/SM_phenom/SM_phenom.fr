@@ -135,8 +135,8 @@ Lextra := Module[{mu,nu},
           - (1/4)(del[vec[mu],nu]-del[vec[nu],mu])^2 + (Mvec^2/2)vec[mu]vec[mu]
           - (1/4)(del[axi[mu],nu]-del[axi[nu],mu])^2 + (Maxi^2/2)axi[mu]axi[mu]
 
-          +   Gsca sca     ebar.             e
-          + I Gpse pse     ebar.Ga[5].       e
-          +   Gvec vec[mu] ebar.      Ga[mu].e
-          +   Gaxi axi[mu] ebar.Ga[5].Ga[mu].e
+          -   Gsca sca     ebar.             e
+          - I Gpse pse     ebar.Ga[5].       e
+          -   Gvec vec[mu] ebar.      Ga[mu].e
+          -   Gaxi axi[mu] ebar.Ga[5].Ga[mu].e
 ];
