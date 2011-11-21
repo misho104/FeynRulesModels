@@ -29,14 +29,18 @@
 (* ************************** *)
 M$ModelName = "MSSM";
 M$Information = { Authors->{"Benjamin Fuks"}, Emails->{"fuks@cern.ch"}, Institutions->{"IPHC Strasbourg / University of Strasbourg"},
-                  Date->"29.04.11", Version->"1.3.4",
+                  Date->"25.10.11", Version->"1.3.8",
                   References->{"C. Duhr, B. Fuks, arXiv:1102.4191 [hep-ph]"},
                   URLs->{"http://feynrules.phys.ucl.ac.be/view/Main/MSSM"} };
+
+(* v1.3.6: Renaming of SP to SPot (variable name clashing). Thanks to Kentarou Mawatari. *)
+(* v1.3.7: Small bug in the definition of the CKM matrix. Thanks Antonio Mariano.        *)
+(* v1.3.8: Interaction orders added.                                                     *)
 
 (* ************************** *)
 (* *****      Flags     ***** *)
 (* ************************** *)
-$CKMDiag = True;   (* CKM  = identity or not *)
+$CKMDiag = False;   (* CKM  = identity or not *)
 $MNSDiag = True;   (* PMNS = identity or not *)
 
 
@@ -45,11 +49,17 @@ $MNSDiag = True;   (* PMNS = identity or not *)
 (* ************************** *)
 M$GaugeGroups = {
   U1Y  == { Abelian->True,  CouplingConstant->gp, Superfield->BSF, Charge->Y, GUTNormalization->3/5},
-  SU2L == { Abelian->False, CouplingConstant->gw, Superfield->WSF,
+  SU2L == { Abelian->False, CouplingConstant->gw, Superfield->WSF, 
             StructureConstant->ep, Representations->{Ta,SU2D}, Definitions->{Ta[a__]->PauliSigma[a]/2, ep->Eps}},
   SU3C == { Abelian->False, CouplingConstant->gs, Superfield->GSF,
-            StructureConstant->f,  Representations->{{T,Colour}, {Tb,Colourb}}, DTerm->dSUN}
+            StructureConstant->f,  Representations->{{T,Colour}, {Tb,Colourb}}, DTerm->dSUN} 
 };
+
+(* ************************** *)
+(* *** Interaction orders *** *)
+(* ************************** *)
+M$InteractionOrderHierarchy = { {QCD, 1}, {QED, 2} };
+
 
 (* ************************** *)
 (* *****    Indices     ***** *)
@@ -69,7 +79,7 @@ IndexRange[Index[SCA    ]] =          Range[6];  IndexStyle[SCA,    i];
 (* *****  Superfields   ***** *)
 (* ************************** *)
 M$Superfields = {
-  VSF[1] == { ClassName->BSF, GaugeBoson->B,  Gaugino->bow},
+  VSF[1] == { ClassName->BSF, GaugeBoson->B,  Gaugino->bow}, 
   VSF[2] == { ClassName->WSF, GaugeBoson->Wi, Gaugino->wow, Indices->{Index[SU2W]}},
   VSF[3] == { ClassName->GSF, GaugeBoson->G,  Gaugino->gow, Indices->{Index[Gluon] }},
   CSF[1] == { ClassName->HU, Chirality->Left, Weyl->huw, Scalar->hus, QuantumNumbers->{Y-> 1/2}, Indices->{Index[SU2D]}},
@@ -255,6 +265,7 @@ M$ClassesDescription = {
             Mass->{MW,Internal}, Width->WW, ParticleName->"ghWm", PropagatorLabel->"uWm", PropagatorType->GhostDash, PropagatorArrow->Forward}
 };
 
+
 (* ************************** *)
 (* *****   Parameters   ***** *)
 (* ************************** *)
@@ -284,7 +295,7 @@ M$Parameters = {
   cw  == { TeX->Subscript[c,w],      ParameterType->Internal, ComplexParameter->False,                                                  Description->"Cosine of the weak angle",    Value->MW/MZ},
   sw  == { TeX->Subscript[s,w],      ParameterType->Internal, ComplexParameter->False,                                                  Description->"Sine of the weak angle",      Value->Sqrt[1-cw^2]},
   PMNS== { TeX->Superscript[U,pmns], ParameterType->Internal, ComplexParameter->True,  Unitary->True, Indices->{Index[GEN],Index[GEN]}, Description->"Neutrino PMNS mixing matrix", If[$MNSDiag, Definitions:>{PMNS[i_,j_]:>0 /;(i!=j), PMNS[i_,j_]:>1/;(i==j)}, Value->{PMNS[i_,j_]:>RMNS[i,j]+I*IMNS[i,j]}]},
-  CKM == { TeX->Superscript[V,ckm],  ParameterType->Internal, ComplexParameter->True,  Unitary->True, Indices->{Index[GEN],Index[GEN]}, Description->"CKM mixing matrix",           If[$CKMDiag, Definitions:>{CKM [i_,j_]:>0 /;(i!=j), CKM [i_,j_]:>1/;(i==j)}, Value->{CKM [i_,j_]:>RCKM[i,j]+I*RCKM[i,j]}]},
+  CKM == { TeX->Superscript[V,ckm],  ParameterType->Internal, ComplexParameter->True,  Unitary->True, Indices->{Index[GEN],Index[GEN]}, Description->"CKM mixing matrix",           If[$CKMDiag, Definitions:>{CKM [i_,j_]:>0 /;(i!=j), CKM [i_,j_]:>1/;(i==j)}, Value->{CKM [i_,j_]:>RCKM[i,j]+I*ICKM[i,j]}]},
   NN  == { TeX->N,                   ParameterType->Internal, ComplexParameter->True,  Unitary->True, Indices->{Index[NEU],Index[NEU]}, Description->"Neutralino mixing matrix",    Value->{NN[i_,j_]:>RNN[i,j]+I*INN[i,j]}},
   UU  == { TeX->U,                   ParameterType->Internal, ComplexParameter->True,  Unitary->True, Indices->{Index[CHA],Index[CHA]}, Description->"Chargino mixing matrix U",    Value->{UU[i_,j_]:>RUU[i,j]+I*IUU[i,j]}},
   VV  == { TeX->V,                   ParameterType->Internal, ComplexParameter->True,  Unitary->True, Indices->{Index[CHA],Index[CHA]}, Description->"Chargino mixing matrix V",    Value->{VV[i_,j_]:>RVV[i,j]+I*IVV[i,j]}},
@@ -420,17 +431,17 @@ LVector := Module[{}, Plus@@(Module[{tmp}, tmp = SF2Components[#]; Expand[tmp[[2
 LChiral :=  Plus@@( Theta2Thetabar2Component[#] &/@ (List @@ CSFKineticTerms[]) );
 
 (* Superpotential *)
-SP:= Module[{ff1,ff2,ff3,cc1},
+SPot:= Module[{ff1,ff2,ff3,cc1},
      yu[ff1,ff2] UR[ff1,cc1] (QL[1,ff2,cc1] HU[2] - QL[2,ff2,cc1] HU[1]) -
      yd[ff1,ff3] Conjugate[CKM[ff2,ff3]] DR[ff1,cc1] (QL[1,ff2,cc1] HD[2] - QL[2,ff2,cc1] HD[1]) -
      ye[ff1,ff2] ER[ff1]     (LL[1,ff2]     HD[2] - LL[2,ff2]     HD[1]) +
      MUH (HU[1] HD[2] - HU[2] HD[1])];
-LSuperW:= ( Plus@@ (Module[{tmp},tmp=SF2Components[#];tmp[[2,5]]+tmp[[2,6]]] &/@ (List @@ Expand[SP+HC[SP]])) )/.Conjugate[CKM[a_, b_]]*CKM[a_, c_]->IndexDelta[b, c];
+LSuperW:= ( Plus@@ (Module[{tmp},tmp=SF2Components[#];tmp[[2,5]]+tmp[[2,6]]] &/@ (List @@ Expand[SPot+HC[SPot]])) )/.Conjugate[CKM[a_, b_]]*CKM[a_, c_]->IndexDelta[b, c];
 
 (* Soft SUSY-breaking Lagrangian *)
 LSoft := Module[{Mino, MSca, Tri, Bil},
   (* Gaugino mass terms *)
-    Mino:=Module[{s,gl}, - Mx1*bow[s].bow[s] -  Mx2*wow[s,gl].wow[s,gl] - Mx3*gow[s,gl].gow[s,gl]];
+    Mino:=Module[{s,gl}, - Mx1*bow[s].bow[s] -  Mx2*wow[s,gl].wow[s,gl] - Mx3*goww[s,gl].goww[s,gl]];
   (* Scalar mass terms *)
     MSca:=Module[{ii,ff1,ff2,ff3,ff4,cc1}, 
       - mHu2*HC[hus[ii]]*hus[ii] - mHd2*HC[hds[ii]]*hds[ii] - 

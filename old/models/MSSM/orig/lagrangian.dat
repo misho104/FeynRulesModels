@@ -198,12 +198,12 @@ lagr = -(mHd2*vd^2)/2 - (ee^2*vd^4)/(32*sw^2) - (ee^2*vd^4)/(32*(1 - sw^2)) +
     (ee^2*h0*sw^2*vu*Cos[alp]*ghZbar . ghZ)/(4*cw^2) - 
     cw^2*ghZbar . del[del[ghZ, Index[Lorentz, mu]], Index[Lorentz, mu]] - 
     sw^2*ghZbar . del[del[ghZ, Index[Lorentz, mu]], Index[Lorentz, mu]] - 
-    ghGbar[Index[Gluon, kk$156729]] . del[del[ghG[Index[Gluon, kk$156729]], 
+    ghGbar[Index[Gluon, kk$156378]] . del[del[ghG[Index[Gluon, kk$156378]], 
        Index[Lorentz, mu]], Index[Lorentz, mu]] - 
-    gs*del[G[Index[Lorentz, mu], Index[Gluon, a$157107]], Index[Lorentz, mu]]*
-     ghGbar[Index[Gluon, kk$156729]] . ghG[Index[Gluon, i$157107]]*
-     f[Index[Gluon, a$157107], Index[Gluon, i$157107], 
-      Index[Gluon, kk$156729]] + gs*del[G[mu$1, Index[Gluon, Gluon$1]], mu$2]*
+    gs*del[G[Index[Lorentz, mu], Index[Gluon, a$156756]], Index[Lorentz, mu]]*
+     ghGbar[Index[Gluon, kk$156378]] . ghG[Index[Gluon, i$156756]]*
+     f[Index[Gluon, a$156756], Index[Gluon, i$156756], 
+      Index[Gluon, kk$156378]] + gs*del[G[mu$1, Index[Gluon, Gluon$1]], mu$2]*
      f[Index[Gluon, Gluon$1], Index[Gluon, Gluon$2], Index[Gluon, Gluon$3]]*
      G[mu$1, Index[Gluon, Gluon$2]]*G[mu$2, Index[Gluon, Gluon$3]] - 
     (gs^2*f[Index[Gluon, Gluon$1], Index[Gluon, Gluon$2], 
@@ -211,10 +211,10 @@ lagr = -(mHd2*vd^2)/2 - (ee^2*vd^4)/(32*sw^2) - (ee^2*vd^4)/(32*(1 - sw^2)) +
        Index[Gluon, Gluon$5]]*G[mu$1, Index[Gluon, Gluon$1]]*
       G[mu$1, Index[Gluon, Gluon$4]]*G[mu$2, Index[Gluon, Gluon$2]]*
       G[mu$2, Index[Gluon, Gluon$5]])/4 - 
-    gs*ghGbar[Index[Gluon, kk$156729]] . del[ghG[Index[Gluon, i$157107]], 
-       Index[Lorentz, mu]]*f[Index[Gluon, a$157107], Index[Gluon, i$157107], 
-      Index[Gluon, kk$156729]]*G[Index[Lorentz, mu], 
-      Index[Gluon, a$157107]] + 
+    gs*ghGbar[Index[Gluon, kk$156378]] . del[ghG[Index[Gluon, i$156756]], 
+       Index[Lorentz, mu]]*f[Index[Gluon, a$156756], Index[Gluon, i$156756], 
+      Index[Gluon, kk$156378]]*G[Index[Lorentz, mu], 
+      Index[Gluon, a$156756]] + 
     Mx2*Conjugate[UU[Index[CHA, CHA$1], Index[CHA, 1]]]*
      Conjugate[VV[Index[CHA, CHA$2], Index[CHA, 1]]]*
      chbar[Index[Spin, SP$1], Index[CHA, CHA$1]] . ch[Index[Spin, SP$2], 
@@ -260,7 +260,7 @@ lagr = -(mHd2*vd^2)/2 - (ee^2*vd^4)/(32*sw^2) - (ee^2*vd^4)/(32*(1 - sw^2)) +
       Conjugate[UU[Index[CHA, CHA$1], Index[CHA, 2]]]*Cos[beta]*
       chbar[Index[Spin, SP$1], Index[CHA, CHA$1]] . neu[Index[Spin, SP$2], 
         Index[NEU, NEU$1]]*ProjM[Index[Spin, SP$1], Index[Spin, SP$2]])/
-     (Sqrt[2]*sw) + (Mx3*gobar[Index[Spin, SP$1], Index[Gluon, Gluon$1]] . 
+     (Sqrt[2]*sw) - (Mx3*gobar[Index[Spin, SP$1], Index[Gluon, Gluon$1]] . 
        go[Index[Spin, SP$2], Index[Gluon, Gluon$1]]*ProjM[Index[Spin, SP$1], 
        Index[Spin, SP$2]])/2 - 
     (ee*Hbar*Conjugate[NN[Index[NEU, NEU$1], Index[NEU, 4]]]*
@@ -422,7 +422,7 @@ lagr = -(mHd2*vd^2)/2 - (ee^2*vd^4)/(32*sw^2) - (ee^2*vd^4)/(32*(1 - sw^2)) +
       Conjugate[yd[Index[GEN, GEN$4], Index[GEN, GEN$2]]]*Cos[beta]*
       dqbar[Index[Spin, SP$1], Index[GEN, GEN$3], Index[Colour, Colour$1]] . 
        dq[Index[Spin, SP$2], Index[GEN, GEN$4], Index[Colour, Colour$1]]*
-      ProjP[Index[Spin, SP$1], Index[Spin, SP$2]])/Sqrt[2] + 
+      ProjP[Index[Spin, SP$1], Index[Spin, SP$2]])/Sqrt[2] - 
     (Conjugate[Mx3]*gobar[Index[Spin, SP$1], Index[Gluon, Gluon$1]] . 
        go[Index[Spin, SP$2], Index[Gluon, Gluon$1]]*ProjP[Index[Spin, SP$1], 
        Index[Spin, SP$2]])/2 - 
