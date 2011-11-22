@@ -26,7 +26,8 @@ SetDirectory[NotebookDirectory[]]
 LoadModel["MSSM.fr"];
 <<MSSM.dat;
 ReadLHAFile[Input->"sps1a.dat"];
-\[AliasDelimiter]WriteUFO[LagFeynman, Exclude4Scalars->False];
+WriteRestrictionFile[];LoadRestriction["ZeroValues.rst"];DeleteFile["ZeroValues.rst"];
+WriteUFO[LagFeynman, Exclude4Scalars->False];
 
 
 SetDirectory[NotebookDirectory[]]
