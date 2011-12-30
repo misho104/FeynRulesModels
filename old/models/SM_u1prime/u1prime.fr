@@ -1,0 +1,118 @@
+(* SM + Extra U(1)                                                                             *)
+(*      Based on the Standard Model file in FeynRules6, written by N. Christensen and C. Duhr. *)
+
+
+If[Or[Not[ValueQ[M$ModelName]], M$ModelName != "Standard Model"], Print["[ERROR] Standard Model must be loaded."]; Abort[]]
+
+M$ModelName = "SM_plus_u1prime";
+
+M$Information = {Authors      -> "Sho Iwamoto",
+                 Version      -> "0.1",
+                 Date         -> "Dec, 27. 2011",
+                 Institutions -> "The University of Tokyo",
+                 Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
+                };
+
+(*****************************************************************************************)
+
+GaugeXi[ V[7] ] = GaugeXi[Zp];
+GaugeXi[ S[4] ] = GaugeXi[Zp];
+
+M$GaugeGroups = {
+  U1X == {
+        Abelian -> True,
+        GaugeBoson -> Zp,
+        Charge -> qX,
+        CouplingConstant -> gX}}
+
+M$Parameters = {
+  lamX   == {
+        ParameterType -> External,
+        TeX           -> Subscript["\[Lambda]","X"],
+        Value         -> 0.4,
+        Description   -> "Quartic coupling of the extra singlet"},
+  vX     == {
+        ParameterType -> External,
+        TeX           -> Subscript["v","X"],
+        Value         -> 100,
+        Description   -> "VEV of the extra singlet"},
+  gX     == {
+        ParameterType -> External,
+        InteractionOrder -> {EXT, 1},
+        TeX           -> Subscript["g","X"],
+        Value -> 1.0,
+        Description -> "Extra U(1) coupling constant" },
+  MX     == {
+        ParameterType -> Internal,
+        TeX           -> Subscript["M","X"],
+        Value         -> gX*qxS*vX,
+        Description   -> "Mass of the U(1)prime vector" },
+  WX     == {
+        ParameterType -> Internal,
+        TeX           -> Subscript["W","X"],
+        Value         -> (gX^2)/(8\[Pi]) (MX (3 qxD^2 + qxE^2 + 2 qxL^2 + 6 qxQ^2 + 3 qxU^2) -  MT^2/MX (qxQ^2 - 6 qxQ qxU + qxU^2)),
+        Description   -> "Width of the U(1)prime vector" },
+  MSS    == {
+        ParameterType -> Internal,
+        TeX           -> Subscript["M","S"],
+        Value         -> Sqrt[2*lamX]*vX,
+        Description   -> "Mass of the extra singlet" },
+  WSS    == {
+        ParameterType -> External,
+        TeX           -> Subscript["W","S"],
+        Value         -> 0,
+        Description   -> "Width of the extra singlet" },
+  qxQ == { ParameterType -> External, TeX->Subscript["qx","Q"], Value -> 1.0, Description -> "U(1)prime charge of Q"},
+  qxU == { ParameterType -> External, TeX->Subscript["qx","U"], Value -> 1.0, Description -> "U(1)prime charge of U"},
+  qxD == { ParameterType -> External, TeX->Subscript["qx","D"], Value -> 1.0, Description -> "U(1)prime charge of D"},
+  qxL == { ParameterType -> External, TeX->Subscript["qx","L"], Value -> 1.0, Description -> "U(1)prime charge of L"},
+  qxE == { ParameterType -> External, TeX->Subscript["qx","E"], Value -> 1.0, Description -> "U(1)prime charge of E"},
+  qxH == { ParameterType -> External, TeX->Subscript["qx","H"], Value -> 1.0, Description -> "U(1)prime charge of H"},
+  qxS == { ParameterType -> External, TeX->Subscript["qx","S"], Value -> 1.0, Description -> "U(1)prime charge of S"}
+}
+
+(*****************************************************************************************)
+
+M$ClassesDescription = {
+  (* Potential = lambda |S|^4 - 2 lambda v^2 |S|^2 *)
+
+  S[4] == {
+        ClassName        -> SS,
+        SelfConjugate    -> True,
+        QuantumNumbers   -> {},
+        Mass             -> {MSS,Internal},
+        Width            -> {WSS,Internal},
+        ParticleName     -> "S",
+        AntiParticleName -> "S~",
+        PropagatorLabel  -> "S",
+        FullName         -> "Extra singlet Higgs",
+        PropagatorType   -> ScalarDash,
+        PropagatorArrow  -> Forward
+       },
+  V[7] == {
+        ClassName -> Zp,
+        SelfConjugate -> True,
+	    Indices -> {},
+	    Mass -> {MX,Internal},
+        Width -> {WX,Internal},
+	    PropagatorLabel -> "Zp",
+	    PropagatorType -> W,
+	    PropagatorArrow -> None,
+        PDG -> 32,
+        FullName -> "Zprime" }
+
+}
+
+(*****************************************************************************************)
+LCHI := Module[{mu,nu},
+        - 1/4 (del[Zp[nu],mu] - del[Zp[mu],nu])^2
+        - lamX (vX SS + SS^2/2)^2
+        + (1/2) del[SS,mu].del[SS,mu] + ((gX qxS)^2 /2) Zp[mu].Zp[mu] (vX+SS)^2
+        + qxQ gX Zp[mu] uqbar.Ga[mu].ProjM.uq  (* Left *)
+        + qxQ gX Zp[mu] dqbar.Ga[mu].ProjM.dq  (* Left *)
+        + qxL gX Zp[mu] vlbar.Ga[mu].ProjM.vl  (* Left *)
+        + qxL gX Zp[mu]  lbar.Ga[mu].ProjM.l   (* Left *)
+        + qxU gX Zp[mu] uqbar.Ga[mu].ProjP.uq  (* Right *)
+        + qxD gX Zp[mu] dqbar.Ga[mu].ProjP.dq  (* Right *)
+        + qxE gX Zp[mu]  lbar.Ga[mu].ProjP.l   (* Right *)
+        ]
