@@ -134,7 +134,7 @@ M$Parameters = {
   ymc == {
         ParameterType -> External,
         BlockName -> YUKAWA,
-        Value -> 1.27,
+        Value -> 1.42,
         OrderBlock -> {4},
         Description -> "Charm Yukawa mass"},
 
