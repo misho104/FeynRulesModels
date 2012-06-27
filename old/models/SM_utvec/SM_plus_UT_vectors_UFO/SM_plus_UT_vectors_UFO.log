@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules $Revision: 634 $
-# Mathematica version: 7.0 for Mac OS X x86 (64-bit) (April 23, 2009)
-# Date: Wed 13 Jul 2011 09:24:27
+# This file was automatically created by FeynRules 1.6.6
+# Mathematica version: 8.0 for Microsoft Windows (32-bit) (December 7, 2010)
+# Date: Wed 27 Jun 2012 18:38:01
 
 
 # 
@@ -8,6 +8,8 @@
 
 # Authors: Sho Iwamoto
 # Model version: 0.1
+# Checking the Quantum numbers
+   * Electric charge defined.
 # Checking the Lagrangians
    * All Lagrangians are ok.
 #
@@ -35,25 +37,27 @@
 # Parameter definitions
 #
 
-   * All parameters are ok.
+   * Parameter gw has no value. Default value 1 assigned.
+   * Parameter g1 has no value. Default value 1 assigned.
 
 
 # Vertices
    * Calling FeynmanRules for 6 Lagrangians.
-   * Number of classes vertices: 98
-   * Number of flavored vertices: 168
+   * Number of classes vertices: 97
+   * Number of flavored vertices: 167
    * Saved vertices in InterfaceRun[ 1 ].
    * Checked QNumber conservation.
       - Quantum number GhostNumber conserved in all vertices.
       - Quantum number LeptonNumber conserved in all vertices.
       - Quantum number Q conserved in all vertices.
+      - Quantum number Y conserved in all vertices.
    * particles.py written.
    * parameters.py written.
 #
 # Vertex definitions
 #
 
-   * 168 vertices written.
+   * 167 vertices written.
    * vertices.py written.
 #
 # Lorentz structure definitions
@@ -65,5 +69,11 @@
 # Coupling definitions
 #
 
-   * 140 couplings written.
+   * 135 couplings written.
    * couplings.py written.
+#
+# Coupling order definitions
+#
+
+   * 0 couplings orders written.
+   * coupling_orders.py written.
