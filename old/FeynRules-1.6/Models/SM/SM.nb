@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     26043,        801]
-NotebookOptionsPosition[     21045,        632]
-NotebookOutlinePosition[     21443,        650]
-CellTagsIndexPosition[     21400,        647]
+NotebookDataLength[     26246,        807]
+NotebookOptionsPosition[     21208,        637]
+NotebookOutlinePosition[     21606,        655]
+CellTagsIndexPosition[     21563,        652]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -78,6 +78,11 @@ Cell[CellGroupData[{
 
 Cell["Unitary Gauge", "Subsection",
  CellChangeTimes->{{3.411910080775518*^9, 3.41191008414785*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanGauge", " ", "=", " ", "False"}], ";"}]], "Input",
+ CellChangeTimes->{{3.5406575402120543`*^9, 3.540657546439702*^9}}],
 
 Cell["\<\
 The full lagrangian in unitary gauge can be accessed immediatly via\
@@ -662,144 +667,145 @@ Cell[CellGroupData[{
 Cell[2578, 73, 102, 1, 100, "Section"],
 Cell[CellGroupData[{
 Cell[2705, 78, 100, 1, 51, "Subsection"],
-Cell[2808, 81, 257, 5, 39, "Text"],
-Cell[3068, 88, 95, 1, 40, "Input"],
+Cell[2808, 81, 160, 3, 40, "Input"],
+Cell[2971, 86, 257, 5, 39, "Text"],
+Cell[3231, 93, 95, 1, 40, "Input"],
 Cell[CellGroupData[{
-Cell[3188, 93, 105, 1, 36, "Subsubsection"],
-Cell[3296, 96, 219, 4, 39, "Text"],
-Cell[3518, 102, 98, 1, 40, "Input"]
+Cell[3351, 98, 105, 1, 36, "Subsubsection"],
+Cell[3459, 101, 219, 4, 39, "Text"],
+Cell[3681, 107, 98, 1, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3653, 108, 154, 2, 36, "Subsubsection"],
-Cell[3810, 112, 270, 6, 39, "Text"],
-Cell[4083, 120, 147, 2, 40, "Input"]
+Cell[3816, 113, 154, 2, 36, "Subsubsection"],
+Cell[3973, 117, 270, 6, 39, "Text"],
+Cell[4246, 125, 147, 2, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4267, 127, 158, 2, 36, "Subsubsection"],
-Cell[4428, 131, 272, 5, 39, "Text"],
-Cell[4703, 138, 148, 2, 40, "Input"]
+Cell[4430, 132, 158, 2, 36, "Subsubsection"],
+Cell[4591, 136, 272, 5, 39, "Text"],
+Cell[4866, 143, 148, 2, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4888, 145, 155, 2, 36, "Subsubsection"],
-Cell[5046, 149, 271, 6, 39, "Text"],
-Cell[5320, 157, 150, 2, 40, "Input"]
+Cell[5051, 150, 155, 2, 36, "Subsubsection"],
+Cell[5209, 154, 271, 6, 39, "Text"],
+Cell[5483, 162, 150, 2, 40, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5519, 165, 148, 2, 51, "Subsection"],
-Cell[5670, 169, 195, 4, 39, "Text"],
-Cell[5868, 175, 149, 3, 40, "Input"],
-Cell[6020, 180, 303, 5, 39, "Text"],
-Cell[6326, 187, 95, 1, 40, "Input"],
+Cell[5682, 170, 148, 2, 51, "Subsection"],
+Cell[5833, 174, 195, 4, 39, "Text"],
+Cell[6031, 180, 149, 3, 40, "Input"],
+Cell[6183, 185, 303, 5, 39, "Text"],
+Cell[6489, 192, 95, 1, 40, "Input"],
 Cell[CellGroupData[{
-Cell[6446, 192, 105, 1, 36, "Subsubsection"],
-Cell[6554, 195, 219, 4, 39, "Text"],
-Cell[6776, 201, 98, 1, 40, "Input"]
+Cell[6609, 197, 105, 1, 36, "Subsubsection"],
+Cell[6717, 200, 219, 4, 39, "Text"],
+Cell[6939, 206, 98, 1, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6911, 207, 154, 2, 36, "Subsubsection"],
-Cell[7068, 211, 270, 6, 39, "Text"],
-Cell[7341, 219, 147, 2, 40, "Input"]
+Cell[7074, 212, 154, 2, 36, "Subsubsection"],
+Cell[7231, 216, 270, 6, 39, "Text"],
+Cell[7504, 224, 147, 2, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7525, 226, 158, 2, 36, "Subsubsection"],
-Cell[7686, 230, 272, 5, 39, "Text"],
-Cell[7961, 237, 148, 2, 40, "Input"]
+Cell[7688, 231, 158, 2, 36, "Subsubsection"],
+Cell[7849, 235, 272, 5, 39, "Text"],
+Cell[8124, 242, 148, 2, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8146, 244, 155, 2, 36, "Subsubsection"],
-Cell[8304, 248, 271, 6, 39, "Text"],
-Cell[8578, 256, 150, 2, 40, "Input"]
+Cell[8309, 249, 155, 2, 36, "Subsubsection"],
+Cell[8467, 253, 271, 6, 39, "Text"],
+Cell[8741, 261, 150, 2, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8765, 263, 205, 3, 36, "Subsubsection"],
-Cell[8973, 268, 316, 5, 39, "Text"],
-Cell[9292, 275, 198, 3, 40, "Input"]
+Cell[8928, 268, 205, 3, 36, "Subsubsection"],
+Cell[9136, 273, 316, 5, 39, "Text"],
+Cell[9455, 280, 198, 3, 40, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9551, 285, 110, 1, 100, "Section"],
-Cell[9664, 288, 149, 3, 40, "Input"],
+Cell[9714, 290, 110, 1, 100, "Section"],
+Cell[9827, 293, 149, 3, 40, "Input"],
 Cell[CellGroupData[{
-Cell[9838, 295, 110, 1, 51, "Subsection"],
-Cell[9951, 298, 134, 1, 39, "Text"],
-Cell[10088, 301, 206, 4, 40, "Input"],
-Cell[10297, 307, 157, 3, 39, "Text"],
-Cell[10457, 312, 206, 4, 40, "Input"]
+Cell[10001, 300, 110, 1, 51, "Subsection"],
+Cell[10114, 303, 134, 1, 39, "Text"],
+Cell[10251, 306, 206, 4, 40, "Input"],
+Cell[10460, 312, 157, 3, 39, "Text"],
+Cell[10620, 317, 206, 4, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10700, 321, 114, 1, 51, "Subsection"],
-Cell[10817, 324, 230, 4, 62, "Text"],
-Cell[11050, 330, 166, 3, 40, "Input"]
+Cell[10863, 326, 114, 1, 51, "Subsection"],
+Cell[10980, 329, 230, 4, 62, "Text"],
+Cell[11213, 335, 166, 3, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11253, 338, 113, 1, 51, "Subsection"],
-Cell[11369, 341, 181, 4, 39, "Text"],
-Cell[11553, 347, 219, 4, 40, "Input"],
-Cell[11775, 353, 173, 4, 39, "Text"],
-Cell[11951, 359, 151, 3, 40, "Input"]
+Cell[11416, 343, 113, 1, 51, "Subsection"],
+Cell[11532, 346, 181, 4, 39, "Text"],
+Cell[11716, 352, 219, 4, 40, "Input"],
+Cell[11938, 358, 173, 4, 39, "Text"],
+Cell[12114, 364, 151, 3, 40, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12151, 368, 116, 1, 100, "Section"],
-Cell[12270, 371, 170, 4, 39, "Text"],
-Cell[12443, 377, 149, 3, 40, "Input"],
+Cell[12314, 373, 116, 1, 100, "Section"],
+Cell[12433, 376, 170, 4, 39, "Text"],
+Cell[12606, 382, 149, 3, 40, "Input"],
 Cell[CellGroupData[{
-Cell[12617, 384, 100, 1, 51, "Subsection"],
-Cell[12720, 387, 457, 10, 40, "Input"]
+Cell[12780, 389, 100, 1, 51, "Subsection"],
+Cell[12883, 392, 457, 10, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13214, 402, 76, 1, 51, "Subsection"],
-Cell[13293, 405, 258, 5, 40, "Input"]
+Cell[13377, 407, 76, 1, 51, "Subsection"],
+Cell[13456, 410, 258, 5, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13588, 415, 35, 0, 51, "Subsection"],
-Cell[13626, 417, 417, 7, 40, "Input"]
+Cell[13751, 420, 35, 0, 51, "Subsection"],
+Cell[13789, 422, 417, 7, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14080, 429, 35, 0, 51, "Subsection"],
-Cell[14118, 431, 360, 8, 40, "Input"]
+Cell[14243, 434, 35, 0, 51, "Subsection"],
+Cell[14281, 436, 360, 8, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14515, 444, 101, 1, 51, "Subsection"],
-Cell[14619, 447, 433, 9, 40, "Input"]
+Cell[14678, 449, 101, 1, 51, "Subsection"],
+Cell[14782, 452, 433, 9, 40, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15101, 462, 132, 2, 100, "Section"],
+Cell[15264, 467, 132, 2, 100, "Section"],
 Cell[CellGroupData[{
-Cell[15258, 468, 103, 1, 51, "Subsection"],
-Cell[15364, 471, 185, 2, 39, "Text"],
-Cell[15552, 475, 569, 11, 87, "Input"],
-Cell[16124, 488, 124, 1, 39, "Text"],
-Cell[16251, 491, 575, 13, 110, "Input"]
+Cell[15421, 473, 103, 1, 51, "Subsection"],
+Cell[15527, 476, 185, 2, 39, "Text"],
+Cell[15715, 480, 569, 11, 87, "Input"],
+Cell[16287, 493, 124, 1, 39, "Text"],
+Cell[16414, 496, 575, 13, 110, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16863, 509, 103, 1, 51, "Subsection"],
-Cell[16969, 512, 183, 2, 39, "Text"],
-Cell[17155, 516, 474, 10, 87, "Input"]
+Cell[17026, 514, 103, 1, 51, "Subsection"],
+Cell[17132, 517, 183, 2, 39, "Text"],
+Cell[17318, 521, 474, 10, 87, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[17666, 531, 205, 3, 51, "Subsection"],
-Cell[17874, 536, 233, 3, 39, "Text"],
-Cell[18110, 541, 398, 10, 87, "Input"]
+Cell[17829, 536, 205, 3, 51, "Subsection"],
+Cell[18037, 541, 233, 3, 39, "Text"],
+Cell[18273, 546, 398, 10, 87, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[18545, 556, 155, 2, 51, "Subsection"],
-Cell[18703, 560, 123, 1, 39, "Text"],
-Cell[18829, 563, 468, 12, 87, "Input"],
-Cell[19300, 577, 90, 1, 40, "Input"]
+Cell[18708, 561, 155, 2, 51, "Subsection"],
+Cell[18866, 565, 123, 1, 39, "Text"],
+Cell[18992, 568, 468, 12, 87, "Input"],
+Cell[19463, 582, 90, 1, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19427, 583, 206, 3, 51, "Subsection"],
-Cell[19636, 588, 180, 4, 39, "Text"],
-Cell[19819, 594, 514, 12, 87, "Input"],
-Cell[20336, 608, 90, 1, 40, "Input"]
+Cell[19590, 588, 206, 3, 51, "Subsection"],
+Cell[19799, 593, 180, 4, 39, "Text"],
+Cell[19982, 599, 514, 12, 87, "Input"],
+Cell[20499, 613, 90, 1, 40, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20463, 614, 248, 3, 51, "Subsection"],
-Cell[20714, 619, 291, 8, 40, "Input"]
+Cell[20626, 619, 248, 3, 51, "Subsection"],
+Cell[20877, 624, 291, 8, 40, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
