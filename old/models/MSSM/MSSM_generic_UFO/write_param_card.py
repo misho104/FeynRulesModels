@@ -1,5 +1,5 @@
 
-__date__ = "3 june 2010"
+__date__ = "22 Sept 2011"
 __author__ = 'olivier.mattelaer@uclouvain.be'
 
 from function_library import *
