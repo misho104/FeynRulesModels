@@ -1,0 +1,1 @@
+../MSSM_generic_UFO/vertices.py
