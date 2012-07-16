@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 1.6.6
 # Mathematica version: 8.0 for Microsoft Windows (32-bit) (December 7, 2010)
-# Date: Tue 3 Jul 2012 16:30:49
+# Date: Mon 2 Jul 2012 23:09:00
 
 
 from object_library import all_couplings, Coupling
