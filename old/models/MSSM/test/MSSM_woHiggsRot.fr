@@ -154,9 +154,9 @@ M$ClassesDescription = {
 
 (* Higgs: unphysical scalars  *)
  S[21] == { ClassName->hus,  Unphysical->True, SelfConjugate->False, Indices->{Index[SU2D]}, FlavorIndex->SU2D, QuantumNumbers->{Y-> 1/2}, 
-            Definitions->{ hus[1]->Cos[beta]*H + Sin[beta]*GP, hus[2]-> (vu + Cos[alp]*h0 + Sin[alp]*H0 + I*Cos[beta]*A0 + I*Sin[beta]*G0)/Sqrt[2] } },
+            Definitions->{ hus[1]->HUP, hus[2]-> HU0 } },
  S[22] == { ClassName->hds,  Unphysical->True, SelfConjugate->False, Indices->{Index[SU2D]}, FlavorIndex->SU2D, QuantumNumbers->{Y->-1/2}, 
-            Definitions->{ hds[1]->(vd - Sin[alp]*h0 + Cos[alp]*H0 + I*Sin[beta]*A0 - I*Cos[beta]*G0)/Sqrt[2],hds[2]->Sin[beta]*Hbar - Cos[beta]*GPbar} },
+            Definitions->{ hds[1]->HD0,hds[2]->HDM} },
 
 (* Higgs: physical fields and Goldstones *)
   S[1] == { ClassName->h0, SelfConjugate->True, Mass->MH01, Width->WH01, ParticleName->"h01",

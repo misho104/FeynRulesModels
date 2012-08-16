@@ -234,16 +234,16 @@
      (ee^2*h0*sw^2*vu*Cos[alp]*ghZbar . ghZ)/(4*cw^2) - 
      cw^2*ghZbar . del[del[ghZ, Index[Lorentz, mu]], Index[Lorentz, mu]] - 
      sw^2*ghZbar . del[del[ghZ, Index[Lorentz, mu]], Index[Lorentz, mu]] - 
-     ghGbar[Index[Gluon, kk$176715]] . del[del[ghG[Index[Gluon, kk$176715]], 
+     ghGbar[Index[Gluon, kk$176513]] . del[del[ghG[Index[Gluon, kk$176513]], 
         Index[Lorentz, mu]], Index[Lorentz, mu]] - 
-     gs*del[G[Index[Lorentz, mu], Index[Gluon, a$177166]], 
-       Index[Lorentz, mu]]*ghGbar[Index[Gluon, kk$176715]] . 
-       ghG[Index[Gluon, i$177166]]*f[Index[Gluon, a$177166], 
-       Index[Gluon, i$177166], Index[Gluon, kk$176715]] - 
-     gs*ghGbar[Index[Gluon, kk$176715]] . del[ghG[Index[Gluon, i$177166]], 
-        Index[Lorentz, mu]]*f[Index[Gluon, a$177166], Index[Gluon, i$177166], 
-       Index[Gluon, kk$176715]]*G[Index[Lorentz, mu], 
-       Index[Gluon, a$177166]] + 
+     gs*del[G[Index[Lorentz, mu], Index[Gluon, a$176964]], 
+       Index[Lorentz, mu]]*ghGbar[Index[Gluon, kk$176513]] . 
+       ghG[Index[Gluon, i$176964]]*f[Index[Gluon, a$176964], 
+       Index[Gluon, i$176964], Index[Gluon, kk$176513]] - 
+     gs*ghGbar[Index[Gluon, kk$176513]] . del[ghG[Index[Gluon, i$176964]], 
+        Index[Lorentz, mu]]*f[Index[Gluon, a$176964], Index[Gluon, i$176964], 
+       Index[Gluon, kk$176513]]*G[Index[Lorentz, mu], 
+       Index[Gluon, a$176964]] + 
      gs*del[G[Index[Lorentz, mu$1], Index[Gluon, Gluon$1]], 
        Index[Lorentz, mu$2]]*f[Index[Gluon, Gluon$1], Index[Gluon, Gluon$2], 
        Index[Gluon, Gluon$3]]*G[Index[Lorentz, mu$1], Index[Gluon, Gluon$2]]*
@@ -7214,7 +7214,7 @@
          Index[CHA, CHA$2]]*UU[Index[CHA, CHA$2], Index[CHA, 2]]*
        Z[Index[Lorentz, mu$1]]*TensDot[Ga[Index[Lorentz, mu$1]], ProjP][
         Index[Spin, SP$1], Index[Spin, SP$2]])/(2*(1 - sw^2)), 
- LagFeynman = -(mHd2*vd^2)/2 - (ee^2*vd^4)/(32*sw^2) - 
+ LagNoGhNG = -(mHd2*vd^2)/2 - (ee^2*vd^4)/(32*sw^2) - 
      (ee^2*vd^4)/(32*(1 - sw^2)) + (bb*vd*vu)/2 - (mHu2*vu^2)/2 + 
      (ee^2*vd^2*vu^2)/(16*sw^2) + (ee^2*vd^2*vu^2)/(16*(1 - sw^2)) - 
      (ee^2*vu^4)/(32*sw^2) - (ee^2*vu^4)/(32*(1 - sw^2)) + 
