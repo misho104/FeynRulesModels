@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 1.6.6
-# Mathematica version: 8.0 for Microsoft Windows (32-bit) (December 7, 2010)
-# Date: Mon 2 Jul 2012 23:08:58
+# This file was automatically created by FeynRules 1.6.7
+# Mathematica version: 8.0 for Mac OS X x86 (64-bit) (October 14, 2011)
+# Date: Fri 17 Aug 2012 00:55:27
 
 
 from __future__ import division

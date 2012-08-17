@@ -81,12 +81,12 @@ M$GenericCouplings = {
 	 (* FFS *)
 
 AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 S[j3, mom3] ] ==
-G[-1][s1 F[j1], s2 F[j2], s3 S[j3]].{NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]]},
+G[-1][s1 F[j1], s2 F[j2], s3 S[j3]].{NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]], NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]]},
 
 	 (* FFV *)
 
 AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 V[j3, mom3, {li3}] ] ==
-G[-1][s1 F[j1], s2 F[j2], s3 V[j3]].{NonCommutative[DiracMatrix[li3], ChiralityProjector[-1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[+1] ]},
+G[-1][s1 F[j1], s2 F[j2], s3 V[j3]].{NonCommutative[DiracMatrix[li3], ChiralityProjector[-1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[+1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[-1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[+1] ]},
 
 	 (* SSS *)
 
@@ -108,10 +108,20 @@ G[+1][s1 S[j1], s2 S[j2], s3 V[j3]].{FourVector[mom1, li3], FourVector[mom2, li3
 AnalyticalCoupling[s1 S[j1, mom1], s2 S[j2, mom2], s3 V[j3, mom3, {li3}], s4 V[j4, mom4, {li4}] ] ==
 G[+1][s1 S[j1], s2 S[j2], s3 V[j3], s4 V[j4]].{MetricTensor[li3,li4]},
 
+	 (* SUU *)
+
+AnalyticalCoupling[s1 S[j1, mom1], s2 U[j2, mom2], s3 U[j3, mom3] ] ==
+G[+1][s1 S[j1], s2 U[j2], s3 U[j3]].{1},
+
 	 (* SVV *)
 
 AnalyticalCoupling[s1 S[j1, mom1], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}] ] ==
 G[+1][s1 S[j1], s2 V[j2], s3 V[j3]].{MetricTensor[li2,li3]},
+
+	 (* UUV *)
+
+AnalyticalCoupling[s1 U[j1, mom1], s2 U[j2, mom2], s3 V[j3, mom3, {li3}] ] ==
+G[+1][s1 U[j1], s2 U[j2], s3 V[j3]].{FourVector[mom2, li3], FourVector[mom3, li3], FourVector[mom1, li3]},
 
 	 (* VVV *)
 
