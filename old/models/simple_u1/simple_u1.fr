@@ -1,0 +1,102 @@
+(* Fermion + Scalar + Extra U(1)          *)
+(*     Benchmark models for U(1) Z' boson *)
+
+
+M$ModelName = "simple_U1prime"
+
+M$Information = {
+    Authors      -> "Sho Iwamoto",
+    Version      -> "0.1",
+    Date         -> "20 Aug. 2012",
+    Institutions -> "The University of Tokyo",
+    Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
+                }
+
+(*****************************************************************************************)
+
+IndexRange[Index[Gluon     ]] = NoUnfold[Range[8]];
+IndexRange[Index[Colour    ]] = NoUnfold[Range[3]];
+IndexRange[Index[Generation]] = Range[3];
+IndexStyle[Gluon,      a];
+IndexStyle[Colour,     m];
+IndexStyle[Generation, f];
+
+M$InteractionOrderHierarchy = {
+    {QCD, 1},
+    {U1X, 2},
+    {SCA, 3}
+};
+
+
+M$GaugeGroups = {
+    SU3C == { Abelian->False, CouplingConstant->gs, GaugeBoson->G,  StructureConstant-> f, Representations-> {T,Colour}, DTerm-> dSUN }
+                };
+
+GaugeXi[ V[1] ] = GaugeXi[Zp];
+GaugeXi[ V[2] ] = GaugeXi[G];
+GaugeXi[ U[1] ] = GaugeXi[Zp];
+GaugeXi[ U[2] ] = GaugeXi[G];
+
+M$ClassesDescription = {
+    V[ 1] == { ClassName->Zp,   SelfConjugate->True,  Mass->{mZp,200},  Width->{wZp,0.4},  ParticleName->"Zp",                                  PropagatorLabel->"Zp",  PropagatorType->Sine,      PropagatorArrow->None },
+    V[ 2] == { ClassName->G,    SelfConjugate->True,  Mass->0,          Width->0,          ParticleName->"g", PDG->21, Indices->{Index[Gluon]}, PropagatorLabel->"G",   PropagatorType->C,         PropagatorArrow->None },
+    U[ 1] == { ClassName->ghZp, SelfConjugate->False, Mass->{mZp,200},  Ghost->Zp, QuantumNumbers->{GhostNumber->1},                            PropagatorLabel->"uZp", PropagatorType->GhostDash, PropagatorArrow->Forward },
+    U[ 2] == { ClassName->ghG,  SelfConjugate->False, Mass->0,          Ghost->G,  QuantumNumbers->{GhostNumber->1},   Indices->{Index[Gluon]}, PropagatorLabel->"uG",  PropagatorType->GhostDash, PropagatorArrow->Forward },
+    S[ 1] == { ClassName->phi,                                                                                              SelfConjugate->False, Mass->{mphi,200},                             Width->{wphi,0.4},            PropagatorLabel->"\[Phi]",           PropagatorType->ScalarDash, PropagatorArrow->Forward,               ParticleName->"phi",         AntiParticleName->"phi~",           FullName->"Scalar"  },
+    F[ 1] == { ClassName->psi,                                                                                              SelfConjugate->False, Mass->{mpsi,100},                             Width->{wpsi,0.3},            PropagatorLabel->"\[Psi]",           PropagatorType->Straight,   PropagatorArrow->Forward,               ParticleName->"psi",         AntiParticleName->"psi~",           FullName->"Fermion" },
+    F[ 2] == { ClassName->uq,   ClassMembers->{u,c,t}, Indices->{Index[Generation],Index[Colour]}, FlavorIndex->Generation, SelfConjugate->False, Mass->{Mu,{MU,2.55*^-3},{MC,1.27}, {MT,172}}, Width->{0,0,{WT,1.50833649}}, PropagatorLabel->{"uq","u","c","t"}, PropagatorType->Straight,   PropagatorArrow->Forward, PDG->{2,4,6}, ParticleName->{"u","c","t"}, AntiParticleName->{"u~","c~","t~"}, FullName->{"u-quark","c-quark","t-quark"} },
+    F[ 3] == { ClassName->dq,   ClassMembers->{d,s,b}, Indices->{Index[Generation],Index[Colour]}, FlavorIndex->Generation, SelfConjugate->False, Mass->{Md,{MD,5.04*^-3},{MS,0.101},{MB,4.7}}, Width->0,                     PropagatorLabel->{"dq","d","s","b"}, PropagatorType->Straight,   PropagatorArrow->Forward, PDG->{1,3,5}, ParticleName->{"d","s","b"}, AntiParticleName->{"d~","s~","b~"}, FullName->{"d-quark","s-quark","b-quark"} },
+    F[11] == { ClassName->psiL, Unphysical->True,                                                                           SelfConjugate->False, Definitions->{ psiL[sp1_]       :> Module[{sp2}, ProjM[sp1,sp2] psi[sp2]] }},
+    F[12] == { ClassName->psiR, Unphysical->True,                                                                           SelfConjugate->False, Definitions->{ psiR[sp1_]       :> Module[{sp2}, ProjP[sp1,sp2] psi[sp2]] }},
+    F[13] == { ClassName->QU,   Unphysical->True,      Indices->{Index[Generation],Index[Colour]}, FlavorIndex->Generation, SelfConjugate->False, Definitions->{ QU[sp1_,ff_,cc_] :> Module[{sp2}, ProjM[sp1,sp2] uq[sp2,ff,cc]] }},
+    F[14] == { ClassName->QD,   Unphysical->True,      Indices->{Index[Generation],Index[Colour]}, FlavorIndex->Generation, SelfConjugate->False, Definitions->{ QD[sp1_,ff_,cc_] :> Module[{sp2}, ProjM[sp1,sp2] dq[sp2,ff,cc]] }},
+    F[15] == { ClassName->uR,   Unphysical->True,      Indices->{Index[Generation],Index[Colour]}, FlavorIndex->Generation, SelfConjugate->False, Definitions->{ uR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] uq[sp2,ff,cc]] }},
+    F[16] == { ClassName->dR,   Unphysical->True,      Indices->{Index[Generation],Index[Colour]}, FlavorIndex->Generation, SelfConjugate->False, Definitions->{ dR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] dq[sp2,ff,cc]] }}
+};
+
+M$Parameters = {
+    lam    == { ParameterType -> External, Value -> 0.1, InteractionOrder -> {SCA, 1} },
+    gX     == { ParameterType -> External, Value -> 0.2, InteractionOrder -> {U1X, 1} },
+    qXphi  == { ParameterType -> External, Value -> 1.0 },
+    qXpsiL == { ParameterType -> External, Value -> 2.0 },
+    qXpsiR == { ParameterType -> External, Value -> 1.0 },
+    qXuL   == { ParameterType -> External, Value -> 3.0 },
+    qXdL   == { ParameterType -> External, Value -> 3.0 },
+    qXuR   == { ParameterType -> External, Value -> 2.0 },
+    qXdR   == { ParameterType -> External, Value -> 1.0 },
+    mZp    == { ParameterType -> External, Value -> 600 },
+    mphi   == { ParameterType -> External, Value -> 200 },
+    mpsi   == { ParameterType -> External, Value -> 100 },
+    wZp    == { ParameterType -> External, Value -> 0.5 },
+    wphi   == { ParameterType -> External, Value -> 0.4 },
+    wpsi   == { ParameterType -> External, Value -> 0.3 },
+    aS     == { ParameterType -> External, BlockName -> SMINPUTS, OrderBlock -> 3, Value -> 0.1184, InteractionOrder -> {QCD,2}},
+    gs     == { ParameterType -> Internal, Value -> Sqrt[4 Pi aS], InteractionOrder -> {QCD,1} }
+}
+
+Lag := Module[{mu, nu},
+              FermionMass = Module[{sp,cc},
+                                   - mpsi psiLbar[sp] psiR[sp]
+                                   - MU   QUbar[sp,1,cc] uR[sp,1,cc]
+                                   - MC   QUbar[sp,2,cc] uR[sp,2,cc]
+                                   - MT   QUbar[sp,3,cc] uR[sp,3,cc]
+                                   - MD   QDbar[sp,1,cc] dR[sp,1,cc]
+                                   - MS   QDbar[sp,2,cc] dR[sp,2,cc]
+                                   - MB   QDbar[sp,3,cc] dR[sp,3,cc]];
+              (* Vector Field *)
+              - (1/4) FS[Zp,mu,nu] FS[Zp,mu,nu] - ghZpbar.del[DC[ghZp,mu],mu];
+              - (1/4) FS[G ,mu,nu] FS[G ,mu,nu] - ghGbar .del[DC[ghG ,mu],mu];
+              + (mZp^2 / 2) Zp[mu] Zp[mu]
+
+              (* Scalar Field *)
+              + (DC[phibar, mu] + I gX qXphi Zp[mu] phibar) (DC[phi, mu] - I gX qXphi Zp[mu] phi)      -  mphi^2 phibar phi
+
+              (* Fermion Field *)
+              + I psiLbar.Ga[mu].ProjM.(DC[psiL, mu]  - I gX qXpsiL Zp[mu] psiL)
+              + I psiRbar.Ga[mu].ProjP.(DC[psiR, mu]  - I gX qXpsiR Zp[mu] psiR)
+              + I QUbar.Ga[mu].(        DC[QU, mu]    - I gX qXuL    Zp[mu] QU)
+              + I QDbar.Ga[mu].(        DC[QD, mu]    - I gX qXdL    Zp[mu] QD)
+              + I uRbar.Ga[mu].(        DC[uR, mu]    - I gX qXuR    Zp[mu] uR)
+              + I dRbar.Ga[mu].(        DC[dR, mu]    - I gX qXdR    Zp[mu] dR)
+              + FermionMass + HC[FermionMass]
+             ];

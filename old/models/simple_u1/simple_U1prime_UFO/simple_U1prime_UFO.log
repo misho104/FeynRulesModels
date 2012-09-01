@@ -1,0 +1,73 @@
+# This file was automatically created by FeynRules 1.6.7
+# Mathematica version: 8.0 for Mac OS X x86 (64-bit) (October 14, 2011)
+# Date: Sat 1 Sep 2012 17:46:09
+
+
+# 
+# This is the logfile for the model simple_U1prime
+
+# Authors: Sho Iwamoto
+# Model version: 0.1
+# Checking the Quantum numbers
+   >>> Electric charge not defined for the model. Assuming zero electric charge for all particles.
+# Checking the Lagrangians
+   * All Lagrangians are ok.
+#
+# Particle definitions
+#
+
+   * No particles removed. All particles correspond to GenInt setup.
+
+# Automatically assigned PDG numbers
+   * Assigned PDG number 9000001 to particle Zp
+   * Assigned PDG number 9000002 to particle ghZp
+   * Assigned PDG number 9000003 to particle ghG
+   * Assigned PDG number 9000004 to particle phi
+   * Assigned PDG number 9000005 to particle psi
+
+
+# Compulsory PDG codes:
+   * Class SM leptons incomplete. 11, 13, 15 missing.
+   * Class SM neutrinos incomplete. 12, 14, 16 missing.
+   * Class SM quarks complete.
+   * Class SM gauge bosons incomplete. 22, 23, 24 missing.
+#
+# Parameter definitions
+#
+
+   * All parameters are ok.
+
+
+# Vertices
+   * Calling FeynmanRules for 1 Lagrangians.
+   * Number of classes vertices: 7
+   * Number of flavored vertices: 15
+   * Saved vertices in InterfaceRun[ 1 ].
+   * Checked QNumber conservation.
+      - Quantum number GhostNumber conserved in all vertices.
+   * particles.py written.
+   * parameters.py written.
+#
+# Vertex definitions
+#
+
+   * 15 vertices written.
+   * vertices.py written.
+#
+# Lorentz structure definitions
+#
+
+   * 5 lorentz structures written.
+   * lorentz.py written.
+#
+# Coupling definitions
+#
+
+   * 9 couplings written.
+   * couplings.py written.
+#
+# Coupling order definitions
+#
+
+   * 0 couplings orders written.
+   * coupling_orders.py written.
