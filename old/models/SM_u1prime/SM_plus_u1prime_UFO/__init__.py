@@ -18,5 +18,5 @@ all_functions = function_library.all_functions
 
 
 __author__ = "Sho Iwamoto"
-__version__ = "0.1"
+__version__ = "0.2"
 __email__ = "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"

@@ -7,112 +7,84 @@ If[Or[Not[ValueQ[M$ModelName]], M$ModelName != "Standard Model"], Print["[ERROR]
 M$ModelName = "SM_plus_u1prime";
 
 M$Information = {Authors      -> "Sho Iwamoto",
-                 Version      -> "0.1",
-                 Date         -> "Dec, 27. 2011",
+                 Version      -> "0.2",
+                 Date         -> "23 Aug. 2012",
                  Institutions -> "The University of Tokyo",
                  Emails       -> "iwamoto@hep-th.phys.s.u-tokyo.ac.jp"
                 };
 
 (*****************************************************************************************)
 
-GaugeXi[ V[7] ] = GaugeXi[Zp];
-GaugeXi[ S[4] ] = GaugeXi[Zp];
+M$InteractionOrderHierarchy = {
+    {U1X, 5}
+};
 
-M$GaugeGroups = {
-  U1X == {
-        Abelian -> True,
-        GaugeBoson -> Zp,
-        Charge -> qX,
-        CouplingConstant -> gX}}
 
-M$Parameters = {
-  lamX   == {
-        ParameterType -> External,
-        TeX           -> Subscript["\[Lambda]","X"],
-        Value         -> 0.4,
-        Description   -> "Quartic coupling of the extra singlet"},
-  vX     == {
-        ParameterType -> External,
-        TeX           -> Subscript["v","X"],
-        Value         -> 100,
-        Description   -> "VEV of the extra singlet"},
-  gX     == {
-        ParameterType -> External,
-        InteractionOrder -> {EXT, 1},
-        TeX           -> Subscript["g","X"],
-        Value -> 1.0,
-        Description -> "Extra U(1) coupling constant" },
-  MX     == {
-        ParameterType -> Internal,
-        TeX           -> Subscript["M","X"],
-        Value         -> gX*qxS*vX,
-        Description   -> "Mass of the U(1)prime vector" },
-  WX     == {
-        ParameterType -> Internal,
-        TeX           -> Subscript["W","X"],
-        Value         -> (gX^2)/(8\[Pi]) (MX (3 qxD^2 + qxE^2 + 2 qxL^2 + 6 qxQ^2 + 3 qxU^2) -  MT^2/MX (qxQ^2 - 6 qxQ qxU + qxU^2)),
-        Description   -> "Width of the U(1)prime vector" },
-  MSS    == {
-        ParameterType -> Internal,
-        TeX           -> Subscript["M","S"],
-        Value         -> Sqrt[2*lamX]*vX,
-        Description   -> "Mass of the extra singlet" },
-  WSS    == {
-        ParameterType -> External,
-        TeX           -> Subscript["W","S"],
-        Value         -> 0,
-        Description   -> "Width of the extra singlet" },
-  qxQ == { ParameterType -> External, TeX->Subscript["qx","Q"], Value -> 1.0, Description -> "U(1)prime charge of Q"},
-  qxU == { ParameterType -> External, TeX->Subscript["qx","U"], Value -> 1.0, Description -> "U(1)prime charge of U"},
-  qxD == { ParameterType -> External, TeX->Subscript["qx","D"], Value -> 1.0, Description -> "U(1)prime charge of D"},
-  qxL == { ParameterType -> External, TeX->Subscript["qx","L"], Value -> 1.0, Description -> "U(1)prime charge of L"},
-  qxE == { ParameterType -> External, TeX->Subscript["qx","E"], Value -> 1.0, Description -> "U(1)prime charge of E"},
-  qxH == { ParameterType -> External, TeX->Subscript["qx","H"], Value -> 1.0, Description -> "U(1)prime charge of H"},
-  qxS == { ParameterType -> External, TeX->Subscript["qx","S"], Value -> 1.0, Description -> "U(1)prime charge of S"}
-}
+GaugeXi[ V[41] ] = GaugeXi[Zp];
+GaugeXi[ U[41] ] = GaugeXi[Zp];
 
-(*****************************************************************************************)
+(* * * *
+ *  M$GaugeGroups = { U1X == { Abelian->True, GaugeBoson->Zp, Charge->qX, CouplingConstant -> gX }}
+ * * * *)
 
 M$ClassesDescription = {
-  (* Potential = lambda |S|^4 - 2 lambda v^2 |S|^2 *)
+    V[41] == { ClassName->Zp,   SelfConjugate->True,  Mass->{mZp,200},  Width->{wZp,0.4},  ParticleName->"Zp",       PropagatorLabel->"Zp",     PropagatorType->Sine,       PropagatorArrow->None },
+    U[41] == { ClassName->ghZp, SelfConjugate->False, Mass->{mZp,200},  Ghost->Zp, QuantumNumbers->{GhostNumber->1}, PropagatorLabel->"uZp",    PropagatorType->GhostDash,  PropagatorArrow->Forward },
 
-  S[4] == {
-        ClassName        -> SS,
-        SelfConjugate    -> True,
-        QuantumNumbers   -> {},
-        Mass             -> {MSS,Internal},
-        Width            -> {WSS,Internal},
-        ParticleName     -> "S",
-        AntiParticleName -> "S~",
-        PropagatorLabel  -> "S",
-        FullName         -> "Extra singlet Higgs",
-        PropagatorType   -> ScalarDash,
-        PropagatorArrow  -> Forward
-       },
-  V[7] == {
-        ClassName -> Zp,
-        SelfConjugate -> True,
-	    Indices -> {},
-	    Mass -> {MX,Internal},
-        Width -> {WX,Internal},
-	    PropagatorLabel -> "Zp",
-	    PropagatorType -> W,
-	    PropagatorArrow -> None,
-        PDG -> 32,
-        FullName -> "Zprime" }
+    F[19] == { ClassName->vR, ClassMembers->{veR,vmR,vtR}, SelfConjugate->True, Indices->{Index[Generation]}, FlavorIndex->Generation, Mass->{MNR, {MeR,1000}, {MMR,1000}, {MTAR,1000}}, Width->0, PropagatorLabel->{"v", "veR", "vmR", "vtR"}, PropagatorType->S, PropagatorArrow->Forward, ParticleName->{"veR","vmR","vtR"}, AntiParticleName -> {"veR~","vmR~","vtR~"}, FullName->{"RH-Electron-neutrino", "RH-Mu-neutrino", "RH-Tau-neutrino"}}
 
+(* * * *
+ *  S[41] == { ClassName->phi,  SelfConjugate->False, Mass->{mphi,200}, Width->{wphi,0.4},                           PropagatorLabel->"\[Phi]", PropagatorType->ScalarDash, PropagatorArrow->Forward, ParticleName->"phi", AntiParticleName->"phi~", FullName->"Scalar" },
+ *  F[41] == { ClassName->psi,  SelfConjugate->False, Mass->{mpsi,100}, Width->{wpsi,0.3},                           PropagatorLabel->"\[Psi]", PropagatorType->Straight,   PropagatorArrow->Forward, ParticleName->"psi", AntiParticleName->"psi~", FullName->"Fermion" },
+ *  F[42] == { ClassName->psiL, SelfConjugate->False, Unphysical->True, Definitions->{ psiL[sp1_]:>Module[{sp2}, ProjM[sp1,sp2] psi[sp2]] }},
+ *  F[43] == { ClassName->psiR, SelfConjugate->False, Unphysical->True, Definitions->{ psiR[sp1_]:>Module[{sp2}, ProjP[sp1,sp2] psi[sp2]] }},
+ * * * *)
+};
+
+M$Parameters = {
+    gX     == { ParameterType -> External, Value -> 0.2, InteractionOrder -> {U1X, 1} },
+    qXuL   == { ParameterType -> External, Value -> 3.0 },
+    qXdL   == { ParameterType -> External, Value -> 3.0 },
+    qXuR   == { ParameterType -> External, Value -> 2.0 },
+    qXdR   == { ParameterType -> External, Value -> 1.0 },
+    qXvL   == { ParameterType -> External, Value -> 2.0 },
+    qXvR   == { ParameterType -> External, Value -> 1.0 },
+    qXeL   == { ParameterType -> External, Value -> 2.0 },
+    qXeR   == { ParameterType -> External, Value -> 1.0 },
+    mZp    == { ParameterType -> External, Value -> 600 },
+    wZp    == { ParameterType -> External, Value -> 0.5 }
+(* * * *
+ *  lam    == { ParameterType -> External, Value -> 0.1, InteractionOrder -> {SCA, 1} },
+ *  qXphi  == { ParameterType -> External, Value -> 1.0 },
+ *  qXpsiL == { ParameterType -> External, Value -> 2.0 },
+ *  qXpsiR == { ParameterType -> External, Value -> 1.0 },
+ *  mphi   == { ParameterType -> External, Value -> 200 },
+ *  mpsi   == { ParameterType -> External, Value -> 100 },
+ *  wphi   == { ParameterType -> External, Value -> 0.4 },
+ *  wpsi   == { ParameterType -> External, Value -> 0.3 },
+ * * * *)
 }
 
 (*****************************************************************************************)
-LCHI := Module[{mu,nu},
-        - 1/4 (del[Zp[nu],mu] - del[Zp[mu],nu])^2
-        - lamX (vX SS + SS^2/2)^2
-        + (1/2) del[SS,mu].del[SS,mu] + ((gX qxS)^2 /2) Zp[mu].Zp[mu] (vX+SS)^2
-        + qxQ gX Zp[mu] uqbar.Ga[mu].ProjM.uq  (* Left *)
-        + qxQ gX Zp[mu] dqbar.Ga[mu].ProjM.dq  (* Left *)
-        + qxL gX Zp[mu] vlbar.Ga[mu].ProjM.vl  (* Left *)
-        + qxL gX Zp[mu]  lbar.Ga[mu].ProjM.l   (* Left *)
-        + qxU gX Zp[mu] uqbar.Ga[mu].ProjP.uq  (* Right *)
-        + qxD gX Zp[mu] dqbar.Ga[mu].ProjP.dq  (* Right *)
-        + qxE gX Zp[mu]  lbar.Ga[mu].ProjP.l   (* Right *)
-        ]
+
+LCHI := Module[{mu,nu, sp1,sp2,sp3, flv},
+               (* Vector Field *)
+               - (1/4) FS[Zp,mu,nu] FS[Zp,mu,nu] - ghZpbar.del[DC[ghZp,mu],mu];
+               + (mZp^2 / 2) Zp[mu] Zp[mu]
+
+               (* Fermion Gauge Interaction *)
+               + I uqbar.Ga[mu].ProjM.uq * ( - I gX qXuL Zp[mu] )
+               + I dqbar.Ga[mu].ProjM.dq * ( - I gX qXdL Zp[mu] )
+               + I uqbar.Ga[mu].ProjP.uq * ( - I gX qXuR Zp[mu] )
+               + I dqbar.Ga[mu].ProjP.dq * ( - I gX qXdR Zp[mu] )
+
+               + I vlbar.Ga[mu].ProjM.vl * ( - I gX qXvL Zp[mu] )
+               + I  lbar.Ga[mu].ProjM.l  * ( - I gX qXeL Zp[mu] )
+               + I  lbar.Ga[mu].ProjP.l  * ( - I gX qXeR Zp[mu] )
+
+               + I vRbar[sp1,flv] Ga[mu,sp1,sp2] ProjP[sp2,sp3] del[vR[sp3,flv],mu]
+               + I vRbar.Ga[mu].ProjP.vR * ( - I gX qXvR Zp[mu] )
+               + MeR  CC[vRbar[sp1,1]] ProjP[sp1,sp2] vR[sp2,1]
+               + MMR  CC[vRbar[sp1,2]] ProjP[sp1,sp2] vR[sp2,2]
+               + MTAR CC[vRbar[sp1,3]] ProjP[sp1,sp2] vR[sp2,3]
+              ];

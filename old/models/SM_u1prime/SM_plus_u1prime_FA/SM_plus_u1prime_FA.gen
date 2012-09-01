@@ -98,10 +98,20 @@ G[+1][s1 S[j1], s2 S[j2], s3 S[j3]].{1},
 AnalyticalCoupling[s1 S[j1, mom1], s2 S[j2, mom2], s3 S[j3, mom3], s4 S[j4, mom4] ] ==
 G[+1][s1 S[j1], s2 S[j2], s3 S[j3], s4 S[j4]].{1},
 
+	 (* SSV *)
+
+AnalyticalCoupling[s1 S[j1, mom1], s2 S[j2, mom2], s3 V[j3, mom3, {li3}] ] ==
+G[+1][s1 S[j1], s2 S[j2], s3 V[j3]].{FourVector[mom1, li3], FourVector[mom2, li3]},
+
 	 (* SSVV *)
 
 AnalyticalCoupling[s1 S[j1, mom1], s2 S[j2, mom2], s3 V[j3, mom3, {li3}], s4 V[j4, mom4, {li4}] ] ==
 G[+1][s1 S[j1], s2 S[j2], s3 V[j3], s4 V[j4]].{MetricTensor[li3,li4]},
+
+	 (* SUU *)
+
+AnalyticalCoupling[s1 S[j1, mom1], s2 U[j2, mom2], s3 U[j3, mom3] ] ==
+G[+1][s1 S[j1], s2 U[j2], s3 U[j3]].{1},
 
 	 (* SVV *)
 
@@ -111,7 +121,7 @@ G[+1][s1 S[j1], s2 V[j2], s3 V[j3]].{MetricTensor[li2,li3]},
 	 (* UUV *)
 
 AnalyticalCoupling[s1 U[j1, mom1], s2 U[j2, mom2], s3 V[j3, mom3, {li3}] ] ==
-G[+1][s1 U[j1], s2 U[j2], s3 V[j3]].{FourVector[mom3, li3], FourVector[mom2, li3], FourVector[mom1, li3]},
+G[+1][s1 U[j1], s2 U[j2], s3 V[j3]].{FourVector[mom2, li3], FourVector[mom3, li3], FourVector[mom1, li3]},
 
 	 (* VVV *)
 
