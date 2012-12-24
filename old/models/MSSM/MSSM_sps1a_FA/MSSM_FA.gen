@@ -81,12 +81,12 @@ M$GenericCouplings = {
 	 (* FFS *)
 
 AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 S[j3, mom3] ] ==
-G[-1][s1 F[j1], s2 F[j2], s3 S[j3]].{NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]], NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]]},
+G[-1][s1 F[j1], s2 F[j2], s3 S[j3]].{NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]]},
 
 	 (* FFV *)
 
 AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 V[j3, mom3, {li3}] ] ==
-G[-1][s1 F[j1], s2 F[j2], s3 V[j3]].{NonCommutative[DiracMatrix[li3], ChiralityProjector[-1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[+1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[-1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[+1] ]},
+G[-1][s1 F[j1], s2 F[j2], s3 V[j3]].{NonCommutative[DiracMatrix[li3], ChiralityProjector[-1] ], NonCommutative[DiracMatrix[li3], ChiralityProjector[+1] ]},
 
 	 (* SSS *)
 

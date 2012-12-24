@@ -234,16 +234,16 @@
      (ee^2*h0*sw^2*vu*Cos[alp]*ghZbar . ghZ)/(4*cw^2) - 
      cw^2*ghZbar . del[del[ghZ, Index[Lorentz, mu]], Index[Lorentz, mu]] - 
      sw^2*ghZbar . del[del[ghZ, Index[Lorentz, mu]], Index[Lorentz, mu]] - 
-     ghGbar[Index[Gluon, kk$176513]] . del[del[ghG[Index[Gluon, kk$176513]], 
+     ghGbar[Index[Gluon, kk$176676]] . del[del[ghG[Index[Gluon, kk$176676]], 
         Index[Lorentz, mu]], Index[Lorentz, mu]] - 
-     gs*del[G[Index[Lorentz, mu], Index[Gluon, a$176964]], 
-       Index[Lorentz, mu]]*ghGbar[Index[Gluon, kk$176513]] . 
-       ghG[Index[Gluon, i$176964]]*f[Index[Gluon, a$176964], 
-       Index[Gluon, i$176964], Index[Gluon, kk$176513]] - 
-     gs*ghGbar[Index[Gluon, kk$176513]] . del[ghG[Index[Gluon, i$176964]], 
-        Index[Lorentz, mu]]*f[Index[Gluon, a$176964], Index[Gluon, i$176964], 
-       Index[Gluon, kk$176513]]*G[Index[Lorentz, mu], 
-       Index[Gluon, a$176964]] + 
+     gs*del[G[Index[Lorentz, mu], Index[Gluon, a$177127]], 
+       Index[Lorentz, mu]]*ghGbar[Index[Gluon, kk$176676]] . 
+       ghG[Index[Gluon, i$177127]]*f[Index[Gluon, a$177127], 
+       Index[Gluon, i$177127], Index[Gluon, kk$176676]] - 
+     gs*ghGbar[Index[Gluon, kk$176676]] . del[ghG[Index[Gluon, i$177127]], 
+        Index[Lorentz, mu]]*f[Index[Gluon, a$177127], Index[Gluon, i$177127], 
+       Index[Gluon, kk$176676]]*G[Index[Lorentz, mu], 
+       Index[Gluon, a$177127]] + 
      gs*del[G[Index[Lorentz, mu$1], Index[Gluon, Gluon$1]], 
        Index[Lorentz, mu$2]]*f[Index[Gluon, Gluon$1], Index[Gluon, Gluon$2], 
        Index[Gluon, Gluon$3]]*G[Index[Lorentz, mu$1], Index[Gluon, Gluon$2]]*
