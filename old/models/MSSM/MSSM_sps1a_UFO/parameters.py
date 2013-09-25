@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 1.6.11
-# Mathematica version: 8.0 for Mac OS X x86 (64-bit) (October 14, 2011)
-# Date: Mon 24 Dec 2012 20:53:18
+# This file was automatically created by FeynRules 1.6.18
+# Mathematica version: 9.0 for Mac OS X x86 (64-bit) (January 28, 2013)
+# Date: Wed 25 Sep 2013 04:16:48
 
 
 
@@ -109,7 +109,7 @@ MA2 = Parameter(name = 'MA2',
                 nature = 'external',
                 type = 'real',
                 value = 166439.065,
-                texname = 'm_A^2',
+                texname = '\\text{Subsuperscript}[m,A,2]',
                 lhablock = 'HMIX',
                 lhacode = [ 4 ])
 
@@ -213,7 +213,7 @@ mHd2 = Parameter(name = 'mHd2',
                  nature = 'external',
                  type = 'real',
                  value = 32337.4943,
-                 texname = 'm_{H_d}^2',
+                 texname = '\\text{Subsuperscript}\\left[m,H_d,2\\right]',
                  lhablock = 'MSOFT',
                  lhacode = [ 21 ])
 
@@ -221,7 +221,7 @@ mHu2 = Parameter(name = 'mHu2',
                  nature = 'external',
                  type = 'real',
                  value = -128800.134,
-                 texname = 'm_{H_u}^2',
+                 texname = '\\text{Subsuperscript}\\left[m,H_u,2\\right]',
                  lhablock = 'MSOFT',
                  lhacode = [ 22 ])
 
@@ -469,7 +469,7 @@ aEWM1 = Parameter(name = 'aEWM1',
                   nature = 'external',
                   type = 'real',
                   value = 127.934,
-                  texname = '\\alpha _w^{-1}',
+                  texname = '\\text{Subsuperscript}[\\alpha ,w,-1]',
                   lhablock = 'SMINPUTS',
                   lhacode = [ 1 ])
 

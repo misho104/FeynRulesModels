@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 1.6.11
-# Mathematica version: 8.0 for Mac OS X x86 (64-bit) (October 14, 2011)
-# Date: Mon 24 Dec 2012 17:37:24
+# This file was automatically created by FeynRules 1.6.18
+# Mathematica version: 9.0 for Mac OS X x86 (64-bit) (January 28, 2013)
+# Date: Wed 25 Sep 2013 05:34:06
 
 
 from __future__ import division
@@ -219,7 +219,7 @@ G0 = Particle(pdg_code = 250,
               width = Param.ZERO,
               texname = 'G0',
               antitexname = 'G0',
-              GoldstoneBoson = True,
+              goldstone = True,
               charge = 0,
               GhostNumber = 0,
               Y = 0)
@@ -233,7 +233,7 @@ G__plus__ = Particle(pdg_code = 251,
                      width = Param.ZERO,
                      texname = 'G+',
                      antitexname = 'G-',
-                     GoldstoneBoson = True,
+                     goldstone = True,
                      charge = 1,
                      GhostNumber = 0,
                      Y = 0)

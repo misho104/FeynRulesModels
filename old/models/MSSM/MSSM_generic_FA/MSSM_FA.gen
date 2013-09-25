@@ -70,8 +70,7 @@ I PropagatorDenominator[mom,Sqrt[GaugeXi[S[j1]]] Mass[S[j1]]],
 AnalyticalPropagator[External][s1 U[j1,mom]]==1,
 
 AnalyticalPropagator[Internal][s1 U[j1,mom]]==
-I Sqrt[GaugeXi[U[j1]]]*
-PropagatorDenominator[mom,Sqrt[GaugeXi[U[j1]]] Mass[U[j1]]]
+I*PropagatorDenominator[mom,Sqrt[GaugeXi[U[j1]]] Mass[U[j1]]]
 }
 
 (*     Generic couplings    *)

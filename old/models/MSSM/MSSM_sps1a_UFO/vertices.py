@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 1.6.11
-# Mathematica version: 8.0 for Mac OS X x86 (64-bit) (October 14, 2011)
-# Date: Mon 24 Dec 2012 20:53:18
+# This file was automatically created by FeynRules 1.6.18
+# Mathematica version: 9.0 for Mac OS X x86 (64-bit) (January 28, 2013)
+# Date: Wed 25 Sep 2013 04:16:48
 
 
 from object_library import all_vertices, Vertex
@@ -6097,97 +6097,97 @@ V_1015 = Vertex(name = 'V_1015',
                 particles = [ P.g, P.g, P.sd1__tilde__, P.sd1 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_52,(1,0):C.GC_52})
+                couplings = {(1,0):C.GC_52,(0,0):C.GC_52})
 
 V_1016 = Vertex(name = 'V_1016',
                 particles = [ P.g, P.g, P.sd2__tilde__, P.sd2 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_55,(1,0):C.GC_55})
+                couplings = {(1,0):C.GC_55,(0,0):C.GC_55})
 
 V_1017 = Vertex(name = 'V_1017',
                 particles = [ P.g, P.g, P.sd3__tilde__, P.sd3 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_58,(1,0):C.GC_58})
+                couplings = {(1,0):C.GC_58,(0,0):C.GC_58})
 
 V_1018 = Vertex(name = 'V_1018',
                 particles = [ P.g, P.g, P.sd3__tilde__, P.sd6 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_61,(1,0):C.GC_61})
+                couplings = {(1,0):C.GC_61,(0,0):C.GC_61})
 
 V_1019 = Vertex(name = 'V_1019',
                 particles = [ P.g, P.g, P.sd4__tilde__, P.sd4 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_64,(1,0):C.GC_64})
+                couplings = {(1,0):C.GC_64,(0,0):C.GC_64})
 
 V_1020 = Vertex(name = 'V_1020',
                 particles = [ P.g, P.g, P.sd5__tilde__, P.sd5 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_67,(1,0):C.GC_67})
+                couplings = {(1,0):C.GC_67,(0,0):C.GC_67})
 
 V_1021 = Vertex(name = 'V_1021',
                 particles = [ P.g, P.g, P.sd3, P.sd6__tilde__ ],
                 color = [ 'T(1,-1,4)*T(2,3,-1)', 'T(1,3,-1)*T(2,-1,4)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_70,(1,0):C.GC_70})
+                couplings = {(1,0):C.GC_70,(0,0):C.GC_70})
 
 V_1022 = Vertex(name = 'V_1022',
                 particles = [ P.g, P.g, P.sd6__tilde__, P.sd6 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_73,(1,0):C.GC_73})
+                couplings = {(1,0):C.GC_73,(0,0):C.GC_73})
 
 V_1023 = Vertex(name = 'V_1023',
                 particles = [ P.g, P.g, P.su1__tilde__, P.su1 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_28,(1,0):C.GC_28})
+                couplings = {(1,0):C.GC_28,(0,0):C.GC_28})
 
 V_1024 = Vertex(name = 'V_1024',
                 particles = [ P.g, P.g, P.su2__tilde__, P.su2 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_31,(1,0):C.GC_31})
+                couplings = {(1,0):C.GC_31,(0,0):C.GC_31})
 
 V_1025 = Vertex(name = 'V_1025',
                 particles = [ P.g, P.g, P.su3__tilde__, P.su3 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_34,(1,0):C.GC_34})
+                couplings = {(1,0):C.GC_34,(0,0):C.GC_34})
 
 V_1026 = Vertex(name = 'V_1026',
                 particles = [ P.g, P.g, P.su3__tilde__, P.su6 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_37,(1,0):C.GC_37})
+                couplings = {(1,0):C.GC_37,(0,0):C.GC_37})
 
 V_1027 = Vertex(name = 'V_1027',
                 particles = [ P.g, P.g, P.su4__tilde__, P.su4 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_40,(1,0):C.GC_40})
+                couplings = {(1,0):C.GC_40,(0,0):C.GC_40})
 
 V_1028 = Vertex(name = 'V_1028',
                 particles = [ P.g, P.g, P.su5__tilde__, P.su5 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_43,(1,0):C.GC_43})
+                couplings = {(1,0):C.GC_43,(0,0):C.GC_43})
 
 V_1029 = Vertex(name = 'V_1029',
                 particles = [ P.g, P.g, P.su3, P.su6__tilde__ ],
                 color = [ 'T(1,-1,4)*T(2,3,-1)', 'T(1,3,-1)*T(2,-1,4)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_46,(1,0):C.GC_46})
+                couplings = {(1,0):C.GC_46,(0,0):C.GC_46})
 
 V_1030 = Vertex(name = 'V_1030',
                 particles = [ P.g, P.g, P.su6__tilde__, P.su6 ],
                 color = [ 'T(1,-1,3)*T(2,4,-1)', 'T(1,4,-1)*T(2,-1,3)' ],
                 lorentz = [ L.VVSS1 ],
-                couplings = {(0,0):C.GC_49,(1,0):C.GC_49})
+                couplings = {(1,0):C.GC_49,(0,0):C.GC_49})
 
 V_1031 = Vertex(name = 'V_1031',
                 particles = [ P.g, P.Z, P.sd1__tilde__, P.sd1 ],
