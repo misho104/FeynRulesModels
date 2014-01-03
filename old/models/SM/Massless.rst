@@ -8,7 +8,7 @@ M$Restrictions = {
           Me -> 0,
 	  yme->0,
 	  ye->0,
-          MM -> 0,
+          MMU -> 0,
 	  ymm->0,
 	  ym->0,
           MU -> 0,

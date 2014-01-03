@@ -2,6 +2,7 @@
 
 SetDirectory[ToFileName[{$FeynModelsDirectory,"SM"}]]
 <<FeynRules`;
+FR$Parallelize=False;
 LoadModel["SM.fr"];
 FeynmanGauge=True;
 (*LoadRestriction["Cabibbo.rst","Massless.rst"]*)
@@ -10,10 +11,20 @@ WriteUFO[LGauge,LHiggs,LFermions,LYukawa,LGhost];
 
 SetDirectory[ToFileName[{$FeynModelsDirectory,"SM"}]]
 <<FeynRules`;
+FR$Parallelize=False;
 LoadModel["SM.fr"];
 FeynmanGauge=True;
 (*LoadRestriction["Cabibbo.rst","Massless.rst"]*)
-WriteFeynArtsOutput[LGauge,LHiggs,LFermions,LYukawa,LGhost];
+WriteFeynArtsOutput[LGauge,LHiggs,LFermions,LYukawa,LGhost,FlavorExpand->SU2W]
+
+
+SetDirectory[ToFileName[{$FeynModelsDirectory,"SM"}]]
+<<FeynRules`;
+FR$Parallelize=False;
+LoadModel["SM.fr"];
+FeynmanGauge=False;
+(*LoadRestriction["Cabibbo.rst","Massless.rst"]*)
+WriteFeynArtsOutput[LGauge,LHiggs,LFermions,LYukawa,FlavorExpand->SU2W,Output->"Standard_Model_FA_Unitarity"]
 
 
 CheckHermiticity[LSM,FlavorExpand->True]
