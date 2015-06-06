@@ -1,6 +1,10 @@
 (* ::Package:: *)
 
-SetDirectory[ToFileName[{$FeynModelsDirectory,"SM"}]]
+SetDirectory[NotebookDirectory[]]
+$FeynModelsDirectory=ParentDirectory[]
+$FeynRulesPath=ToFileName[{ParentDirectory[],"FeynRules"}]
+
+
 <<FeynRules`;
 FR$Parallelize=False;
 LoadModel["SM.fr"];
@@ -9,7 +13,6 @@ FeynmanGauge=True;
 WriteUFO[LGauge,LHiggs,LFermions,LYukawa,LGhost];
 
 
-SetDirectory[ToFileName[{$FeynModelsDirectory,"SM"}]]
 <<FeynRules`;
 FR$Parallelize=False;
 LoadModel["SM.fr"];

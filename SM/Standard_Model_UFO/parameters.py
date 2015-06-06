@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 2.0.6
-# Mathematica version: 9.0 for Mac OS X x86 (64-bit) (January 28, 2013)
-# Date: Fri 3 Jan 2014 19:20:41
+# This file was automatically created by FeynRules 2.3.2
+# Mathematica version: 10.0 for Mac OS X x86 (64-bit) (December 4, 2014)
+# Date: Sat 6 Jun 2015 17:23:54
 
 
 
