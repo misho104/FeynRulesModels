@@ -118,6 +118,7 @@ class ParamCardWriter(object):
     def write_dep_param_block(self, lhablock):
         import cmath
         from parameters import all_parameters
+        from particles import all_particles
         for parameter in all_parameters:
             exec("%s = %s" % (parameter.name, parameter.value))
         text = "##  Not dependent paramater.\n"
@@ -131,6 +132,7 @@ class ParamCardWriter(object):
         else:
             data = self.dep_width
             prefix = "DECAY "
+
         for part, param in data:
             if isinstance(param.value, str):
                 value = complex(eval(param.value)).real
@@ -139,8 +141,32 @@ class ParamCardWriter(object):
             
             text += """%s %s %f # %s : %s \n""" %(prefix, part.pdg_code, 
                         value, part.name, param.value)
+        # If more than a particles has the same mass/width we need to write it here
+        # as well
+        if lhablock == 'MASS':
+            arg = 'mass'
+            done = [part for (part, param) in self.dep_mass]
+        else:
+            arg = 'width'
+            done = [part for (part, param) in self.dep_width]
+        for particle in all_particles:
+            if particle.pdg_code <0:
+                continue
+            is_define = True
+            if particle not in done:
+                if getattr(particle, arg).lhacode[0] != particle.pdg_code:
+                    is_define = False                
+            if  not is_define:
+                value = float(particle.get(arg).value )
+                name =  particle.get(arg).name 
+                text += """%s %s %f # %s : %s \n""" %(prefix, particle.pdg_code, 
+                        value, particle.name, name)
+
+
+
+
         self.fsock.write(text)    
-    
+        
     sm_pdg = [1,2,3,4,5,6,11,12,13,13,14,15,16,21,22,23,24,25]
     data="""Block QNUMBERS %(pdg)d  # %(name)s 
         1 %(charge)d  # 3 times electric charge
@@ -168,7 +194,6 @@ class ParamCardWriter(object):
                                  'antipart': part.name != part.antiname and 1 or 0}
         
         self.fsock.write(text)
-        
         
             
             

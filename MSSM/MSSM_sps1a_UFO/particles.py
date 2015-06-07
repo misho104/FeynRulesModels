@@ -1,11 +1,13 @@
-# This file was automatically created by FeynRules 1.6.18
-# Mathematica version: 9.0 for Mac OS X x86 (64-bit) (January 28, 2013)
-# Date: Wed 25 Sep 2013 04:16:47
+# This file was automatically created by FeynRules 2.3.2
+# Mathematica version: 10.0 for Mac OS X x86 (64-bit) (December 4, 2014)
+# Date: Sat 6 Jun 2015 21:27:40
 
 
 from __future__ import division
 from object_library import all_particles, Particle
 import parameters as Param
+
+import propagators as Prop
 
 a = Particle(pdg_code = 22,
              name = 'a',

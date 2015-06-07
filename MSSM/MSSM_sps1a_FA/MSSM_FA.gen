@@ -105,7 +105,7 @@ G[+1][s1 S[j1], s2 S[j2], s3 V[j3]].{FourVector[mom1, li3], FourVector[mom2, li3
 	 (* SSVV *)
 
 AnalyticalCoupling[s1 S[j1, mom1], s2 S[j2, mom2], s3 V[j3, mom3, {li3}], s4 V[j4, mom4, {li4}] ] ==
-G[+1][s1 S[j1], s2 S[j2], s3 V[j3], s4 V[j4]].{MetricTensor[li3,li4]},
+G[+1][s1 S[j1], s2 S[j2], s3 V[j3], s4 V[j4]].{MetricTensor[li3 ,li4 ]},
 
 	 (* SUU *)
 
@@ -115,7 +115,7 @@ G[+1][s1 S[j1], s2 U[j2], s3 U[j3]].{1},
 	 (* SVV *)
 
 AnalyticalCoupling[s1 S[j1, mom1], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}] ] ==
-G[+1][s1 S[j1], s2 V[j2], s3 V[j3]].{MetricTensor[li2,li3]},
+G[+1][s1 S[j1], s2 V[j2], s3 V[j3]].{MetricTensor[li2 ,li3 ]},
 
 	 (* UUV *)
 
@@ -125,12 +125,12 @@ G[+1][s1 U[j1], s2 U[j2], s3 V[j3]].{FourVector[mom2, li3], FourVector[mom3, li3
 	 (* VVV *)
 
 AnalyticalCoupling[s1 V[j1, mom1, {li1}], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}] ] ==
-G[+1][s1 V[j1], s2 V[j2], s3 V[j3]].{FourVector[mom1, li3]MetricTensor[li1,li2], FourVector[mom2, li3]MetricTensor[li1,li2], FourVector[mom1, li2]MetricTensor[li1,li3], FourVector[mom3, li2]MetricTensor[li1,li3], FourVector[mom2, li1]MetricTensor[li2,li3], FourVector[mom3, li1]MetricTensor[li2,li3]},
+G[+1][s1 V[j1], s2 V[j2], s3 V[j3]].{FourVector[mom1, li3]MetricTensor[li1 ,li2 ], FourVector[mom2, li3]MetricTensor[li1 ,li2 ], FourVector[mom1, li2]MetricTensor[li1 ,li3 ], FourVector[mom3, li2]MetricTensor[li1 ,li3 ], FourVector[mom2, li1]MetricTensor[li2 ,li3 ], FourVector[mom3, li1]MetricTensor[li2 ,li3 ]},
 
 	 (* VVVV *)
 
 AnalyticalCoupling[s1 V[j1, mom1, {li1}], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}], s4 V[j4, mom4, {li4}] ] ==
-G[+1][s1 V[j1], s2 V[j2], s3 V[j3], s4 V[j4]].{MetricTensor[li1,li4]MetricTensor[li2,li3], MetricTensor[li1,li3]MetricTensor[li2,li4], MetricTensor[li1,li2]MetricTensor[li3,li4]}
+G[+1][s1 V[j1], s2 V[j2], s3 V[j3], s4 V[j4]].{MetricTensor[li1 ,li4 ]MetricTensor[li2 ,li3 ], MetricTensor[li1 ,li3 ]MetricTensor[li2 ,li4 ], MetricTensor[li1 ,li2 ]MetricTensor[li3 ,li4 ]}
 }
 
 (* FlippingRules: the flipping rules determines how Dirac

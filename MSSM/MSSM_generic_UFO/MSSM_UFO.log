@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 1.6.18
-# Mathematica version: 9.0 for Mac OS X x86 (64-bit) (January 28, 2013)
-# Date: Wed 25 Sep 2013 04:27:37
+# This file was automatically created by FeynRules 2.3.2
+# Mathematica version: 10.0 for Mac OS X x86 (64-bit) (December 4, 2014)
+# Date: Sat 6 Jun 2015 21:46:18
 
 
 # 
@@ -35,8 +35,7 @@
 # Parameter definitions
 #
 
-   * Parameter gp has no value. Default value 1 assigned.
-   * Parameter gw has no value. Default value 1 assigned.
+   * All parameters are ok.
 
 
 # Vertices
@@ -60,7 +59,7 @@
 # Lorentz structure definitions
 #
 
-   * 20 lorentz structures written.
+   * 21 lorentz structures written.
    * lorentz.py written.
 #
 # Coupling definitions
@@ -74,3 +73,15 @@
 
    * 0 couplings orders written.
    * coupling_orders.py written.
+#
+# Decay definitions
+#
+
+   * 43 decays written.
+   * decay.py not written
+#
+# CTCoupling definitions
+#
+
+   * 0 CTcouplings written.
+   * CT_couplings.py written.

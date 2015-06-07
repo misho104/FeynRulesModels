@@ -3,12 +3,14 @@
 # sps1a.dat    for CalcHEP; not for Whizard
 # sps1a_wo.dat for Whizard; not for CalcHEP
 
-MATH=MathKernel
+MATH=/Applications/Mathematica.app/Contents/MacOS/WolframKernel
 
 # ------ Lagrangian
 rm MSSM.dat
 $MATH << '_EOC_'
 SetDirectory[NotebookDirectory[]]
+$FeynModelsDirectory=ParentDirectory[]
+$FeynRulesPath=ToFileName[{ParentDirectory[],"FeynRules"}]
 <<FeynRules`
 LoadModel["MSSM.fr"];
 lagr=Lag;
@@ -23,6 +25,8 @@ _EOC_
 
 $MATH <<'_EOC_'
 SetDirectory[NotebookDirectory[]]
+$FeynModelsDirectory=ParentDirectory[]
+$FeynRulesPath=ToFileName[{ParentDirectory[],"FeynRules"}]
 <<FeynRules`
 LoadModel["MSSM.fr"];
 <<MSSM.dat;
@@ -35,6 +39,8 @@ mv MSSM_UFO MSSM_sps1a_UFO
 
 $MATH <<'_EOC_'
 SetDirectory[NotebookDirectory[]]
+$FeynModelsDirectory=ParentDirectory[]
+$FeynRulesPath=ToFileName[{ParentDirectory[],"FeynRules"}]
 <<FeynRules`
 LoadModel["MSSM.fr"];
 <<MSSM.dat;
@@ -47,6 +53,8 @@ mv MSSM_FA MSSM_sps1a_FA
 
 $MATH <<'_EOC_'
 SetDirectory[NotebookDirectory[]]
+$FeynModelsDirectory=ParentDirectory[]
+$FeynRulesPath=ToFileName[{ParentDirectory[],"FeynRules"}]
 <<FeynRules`
 LoadModel["MSSM.fr"];
 <<MSSM.dat;
@@ -59,6 +67,8 @@ mv MSSM_UFO MSSM_generic_UFO
 
 $MATH << '_EOC_'
 SetDirectory[NotebookDirectory[]]
+$FeynModelsDirectory=ParentDirectory[]
+$FeynRulesPath=ToFileName[{ParentDirectory[],"FeynRules"}]
 <<FeynRules`
 LoadModel["MSSM.fr"];
 <<MSSM.dat;
